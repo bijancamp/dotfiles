@@ -1,0 +1,78 @@
+WINDOW_TITLE="Bash"
+USER="Bijan"
+LOCATION="Home"
+
+LIGHT_GRAY="\[\e[0;37m\]"
+LIGHT_GREEN="\[\e[1;32m\]"
+YELLOW="\[\e[1;33m\]"
+LIGHT_BLUE="\[\e[1;34m\]"
+WHITE="\[\e[1;37m\]"
+DEFAULT_COLOR="\[\e[0m\]"
+
+PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}@${LIGHT_BLUE}${LOCATION} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
+
+# For chezmoi and others
+export EDITOR="code"
+
+# Enable Kiro shell integration
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
+
+# fnm shell setup
+eval "$(fnm env --use-on-cd --shell bash)"
+
+bind 'TAB':menu-complete
+bind '"\e[Z"':menu-complete-backward
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias cdr="cd /c/Repos"
+alias ch="chezmoi"
+
+alias build="build_closest -verbosity:minimal -clp:errorsonly"
+alias rebuild="build_closest -t:rebuild -verbosity:minimal -clp:errorsonly"
+
+build_closest () {
+  local repo_root
+
+  repo_root="$(git rev-parse --show-toplevel 2> /dev/null)"
+
+  if [[ $? != 0 ]]; then
+    echo "Not in a Git repo!"
+    return 1
+  fi
+
+  repo_root="$(cygpath "$repo_root")"
+
+  local directory
+  directory="$PWD"
+
+  while :; do
+    if { directory_buildable "$directory"; }; then
+      MSBuild.exe "$directory" "$@"
+      break
+    fi
+
+    # Reached repo root without finding a buildable directory
+    if [[ "$directory" == "$repo_root" ]]; then
+      echo "Not within a project or solution!"
+      break
+    fi
+
+    directory="$(dirname "$directory")"
+  done
+}
+
+directory_buildable () {
+  if ls "$1"/*.csproj &> /dev/null || \
+     [[ -f "$directory"/website.publishproj ]] || \
+     ls "$1"/*.sln &> /dev/null
+  then
+    return 0
+  fi
+
+  return 1
+}
