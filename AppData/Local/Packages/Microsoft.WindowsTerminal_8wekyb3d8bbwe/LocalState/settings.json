@@ -1,0 +1,198 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions":
+    [
+        {
+            "command":
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command":
+            {
+                "action": "globalSummon"
+            },
+            "id": "User.globalSummon.51A3D78C"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command":
+            {
+                "action": "globalSummon",
+                "name": "_quake"
+            },
+            "id": "User.globalSummon.A1BA4FE8"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
+    "keybindings":
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.globalSummon.51A3D78C",
+            "keys": "win+'"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "User.globalSummon.A1BA4FE8",
+            "keys": "win+minus"
+        }
+    ],
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles":
+    {
+        "defaults":
+        {
+            "opacity": 85,
+            "useAcrylic": true
+        },
+        "list":
+        [
+            {
+                "colorScheme": "Flat-UI",
+                "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l",
+                "cursorShape": "underscore",
+                "guid": "{00000000-0000-0000-ba54-000000000002}",
+                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "Bash",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "colorScheme": "Raspberry Ubuntu",
+                "cursorColor": "#FFFFFF",
+                "font":
+                {
+                    "face": "Cascadia Code"
+                },
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "icon": "ms-appdata:///roaming/ubuntu_32px.png",
+                "name": "Ubuntu",
+                "padding": "5, 5, 5, 5",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Ubuntu"
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": true,
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
+            }
+        ]
+    },
+    "schemes":
+    [
+        {
+            "background": "#181818",
+            "black": "#2C3E50",
+            "blue": "#2980B9",
+            "brightBlack": "#34495E",
+            "brightBlue": "#3498DB",
+            "brightCyan": "#1ABC9C",
+            "brightGreen": "#2ECC71",
+            "brightPurple": "#9B59B6",
+            "brightRed": "#E74C3C",
+            "brightWhite": "#ECF0F1",
+            "brightYellow": "#F1C40F",
+            "cursorColor": "#D35400",
+            "cyan": "#7AA085",
+            "foreground": "#ECF0F1",
+            "green": "#27AE60",
+            "name": "Flat-UI",
+            "purple": "#8E44AD",
+            "red": "#C0392B",
+            "selectionBackground": "#FFFFFF",
+            "white": "#BDC3C7",
+            "yellow": "#F39C12"
+        },
+        {
+            "background": "#3C0315",
+            "black": "#282A2E",
+            "blue": "#0170C5",
+            "brightBlack": "#676E7A",
+            "brightBlue": "#80C8FF",
+            "brightCyan": "#8ABEB7",
+            "brightGreen": "#B5D680",
+            "brightPurple": "#AC79BB",
+            "brightRed": "#E7A9BB",
+            "brightWhite": "#FFFFFD",
+            "brightYellow": "#FFFD92",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3F8D83",
+            "foreground": "#FFFFFD",
+            "green": "#76AB23",
+            "name": "Raspberry Ubuntu",
+            "purple": "#7D498F",
+            "red": "#BD0940",
+            "selectionBackground": "#FFFFFF",
+            "white": "#FFFFFD",
+            "yellow": "#E0DE48"
+        }
+    ],
+    "themes": []
+}
