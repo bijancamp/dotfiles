@@ -1,0 +1,5 @@
+ThemeFile=flat-ui
+Transparency=off
+OpaqueWhenFocused=no
+CursorType=underscore
+CtrlShiftShortcuts=yes
