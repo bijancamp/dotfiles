@@ -9,7 +9,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.inlineSuggest.enabled": true,
     "editor.renderWhitespace": "boundary",
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "onFocusChange",
     "git.inputValidation": true,
     "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
     "github.copilot.nextEditSuggestions.enabled": true,
