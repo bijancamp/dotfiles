@@ -4,6 +4,9 @@
 [includeIf "gitdir:C:/"]
 	path = .gitconfig.windows
 
+[includeIf "gitdir:/workspaces"]
+	path = .gitconfig.devcontainer
+
 [includeIf "gitdir:ADO/"]
 	path = .gitconfig.ado
 
