@@ -61,10 +61,7 @@ echo "[dotfiles] Copying basic dotfiles..."
 copy_dotfile "dot_bash_profile" "$HOME/.bash_profile"
 copy_dotfile "dot_bashrc" "$HOME/.bashrc"
 copy_dotfile "dot_gitconfig" "$HOME/.gitconfig" "append"
+echo "[dotfiles] Done setting up basic dotfiles."
 
 echo "[dotfiles] Basic dotfiles setup complete."
-echo "[dotfiles] To set up devcontainer gitconfig, run:"
-echo "[dotfiles]   gitconfig_personal  (for personal projects)"
-echo "[dotfiles]   gitconfig_work      (for work projects)"
-
-echo "[dotfiles] Done setting up dotfiles."
+echo "[dotfiles] To finish setting up gitconfig, run the 'use' command."
