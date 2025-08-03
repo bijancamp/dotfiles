@@ -76,3 +76,33 @@ directory_buildable () {
 
   return 1
 }
+
+# Setup gitconfig for devcontainers
+_setup_gitconfig() {
+    local profile="$1"
+    local src="$HOME/dotfiles/dot_gitconfig-devcontainer-$profile"
+    local dest="$HOME/.gitconfig-devcontainer"
+
+    if [[ ! -f "$src" ]]; then
+        echo "Error: $src not found."
+        return 1
+    fi
+
+    cp "$src" "$dest"
+
+    if [ $? -ne 0 ]; then
+      echo "Failed to copy $profile gitconfig for devcontainers."
+      return 1
+    fi
+
+    echo "Successfully set up $profile gitconfig for devcontainers."
+    return 0
+}
+
+gitconfig_personal() {
+    _setup_gitconfig "personal"
+}
+
+gitconfig_work() {
+    _setup_gitconfig "work"
+}
