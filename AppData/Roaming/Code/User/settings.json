@@ -5,6 +5,7 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "dev.containers.copyGitConfig": false,
     "dotfiles.repository": "bijancamp/dotfiles",
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.inlineSuggest.enabled": true,
