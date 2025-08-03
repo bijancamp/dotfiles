@@ -1,20 +1,16 @@
-[include]
-	path = .gitconfig.default
-
 [includeIf "gitdir:C:/"]
-	path = .gitconfig.windows
+	path = .gitconfig-windows
+
+[includeIf "gitdir:C:/Repos/ADO/"]
+	path = .gitconfig-ado
+
+[includeIf "gitdir:C:/Repos/GH/"]
+	path = .gitconfig-gh
 
 [includeIf "gitdir:/workspaces/"]
-	path = .gitconfig.devcontainer
-
-[includeIf "gitdir:ADO/"]
-	path = .gitconfig.ado
-
-[includeIf "gitdir:GH/"]
-	path = .gitconfig.gh
+	path = .gitconfig-devcontainer
 
 [core]
-	autocrlf = true
 	editor = code --wait
 
 [init]
