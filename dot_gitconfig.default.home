@@ -1,0 +1,7 @@
+[user]
+	name = Bijan Camp
+	email = 8800015+bijancamp@users.noreply.github.com
+	signingkey = B3337A2587EF7238
+
+[commit]
+	gpgsign = true
