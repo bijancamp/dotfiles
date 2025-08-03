@@ -1,3 +1,14 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Needed in order to get __git_ps1 which is used in the prompt below
+if [[ -f /usr/lib/git-core/git-sh-prompt ]]; then
+  source /usr/lib/git-core/git-sh-prompt
+fi
+
 WINDOW_TITLE="Bash"
 USER="Bijan"
 LOCATION="Home"
