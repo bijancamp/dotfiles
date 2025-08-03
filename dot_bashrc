@@ -12,7 +12,7 @@ DEFAULT_COLOR="\[\e[0m\]"
 PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}@${LIGHT_BLUE}${LOCATION} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
 
 # For chezmoi and others
-export EDITOR="code"
+export EDITOR="code --wait"
 
 # Enable Kiro shell integration
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
