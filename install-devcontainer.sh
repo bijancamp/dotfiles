@@ -63,6 +63,8 @@ apply_dotfile() {
 echo "[dotfiles] Applying initial dotfiles with chezmoi..."
 apply_dotfile "$HOME/.bash_profile"
 apply_dotfile "$HOME/.bashrc"
+apply_dotfile "$HOME/.gitconfig-user-personal"
+apply_dotfile "$HOME/.gitconfig-user-work"
 echo "[dotfiles] Done applying initial dotfiles."
 
 # Copy utility scripts to make them available in PATH
