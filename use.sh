@@ -52,18 +52,13 @@ main() {
                 ;;
         esac
     else
-        # Interactive mode: prompt user for purpose choice with personal as default
+        # Interactive mode: prompt user for purpose choice
         while [ -z "$purpose" ]; do
             echo "Choose your dotfiles configuration:"
-            echo "  1) personal (default)"
+            echo "  1) personal"
             echo "  2) work"
-            printf "Enter your choice (1 or 2, default is 1): "
+            printf "Enter your choice (1 or 2): "
             read choice
-
-            # Set default to 1 if user just pressed Enter
-            if [ -z "$choice" ]; then
-                choice=1
-            fi
 
             case "$choice" in
                 1)
@@ -84,11 +79,29 @@ main() {
     echo "Configuring chezmoi for $purpose use..."
     run_chezmoi init --force --promptChoice "Host type=container" --promptString "Host purpose=$purpose"
     echo "Successfully configured chezmoi for $purpose use."
-    echo "Configuration saved to: \$HOME/.config/chezmoi/chezmoi.toml"
+    echo "Configuration saved to: $HOME/.config/chezmoi/chezmoi.toml"
 
-    # Apply the selected configuration
-    run_chezmoi apply --force "$HOME/.gitconfig"
-    echo "Successfully applied \$HOME/.gitconfig for $purpose use."
+    SOURCE_PATH="$(run_chezmoi source-path)"
+
+    # Create backup of original .gitconfig if it doesn't exist
+    if [ -f "$HOME/.gitconfig" ] && [ ! -f "$HOME/.gitconfig.orig" ]; then
+        cp "$HOME/.gitconfig" "$HOME/.gitconfig.orig"
+        echo "Created backup of original .gitconfig at ~/.gitconfig.orig."
+    fi
+
+    # Manually apply .gitconfig by combining template output with the original config
+    {
+        echo "# WARNING: Any manual changes to this file will be lost the next time 'use' is run.";
+        echo "# To preserve custom settings, add them to ~/.gitconfig.orig as well.";
+        echo "";
+        run_chezmoi execute-template --force < "$SOURCE_PATH/dot_gitconfig.tmpl";
+        echo "";
+        if [ -f "$HOME/.gitconfig.orig" ]; then
+            cat "$HOME/.gitconfig.orig";
+        fi
+    } > "$HOME/.gitconfig"
+
+    echo "Successfully applied $HOME/.gitconfig for $purpose use."
 }
 
 main "$@"

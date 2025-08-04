@@ -15,7 +15,7 @@ if ! chezmoi="$(command -v chezmoi)"; then
 	bin_dir="$HOME/.local/bin"
 	chezmoi="$bin_dir/chezmoi"
 
-    echo "[dotfiles] Installing chezmoi into \$HOME/.local/bin..."
+    echo "[dotfiles] Installing chezmoi into $HOME/.local/bin..."
 
 	if command -v curl >/dev/null; then
 		chezmoi_install_script="$(curl -fsSL get.chezmoi.io)"
@@ -66,20 +66,20 @@ apply_dotfile "$HOME/.bashrc"
 echo "[dotfiles] Done applying initial dotfiles."
 
 # Copy utility scripts to make them available in PATH
-echo "[dotfiles] Copying scripts to \$HOME/.local/bin..."
+echo "[dotfiles] Copying scripts to $HOME/.local/bin..."
 
 # Copy this installation script itself to ~/.local/bin for future use
 SCRIPT_NAME="${0##*/}"  # POSIX-compliant basename alternative
 cp "$0" "$HOME/.local/bin/$SCRIPT_NAME"
 chmod +x "$HOME/.local/bin/$SCRIPT_NAME"
-echo "[dotfiles] Copied $SCRIPT_NAME to \$HOME/.local/bin."
+echo "[dotfiles] Copied $SCRIPT_NAME to $HOME/.local/bin."
 
 # Copy use.sh from chezmoi source directory
 SOURCE_PATH="$(run_chezmoi source-path)"
 if [ -f "$SOURCE_PATH/use.sh" ]; then
     cp "$SOURCE_PATH/use.sh" "$HOME/.local/bin/use"
     chmod +x "$HOME/.local/bin/use"
-    echo "[dotfiles] Copied use.sh to \$HOME/.local/bin as 'use'."
+    echo "[dotfiles] Copied use.sh to $HOME/.local/bin as 'use'."
 else
     echo "[dotfiles] Warning: use.sh not found in chezmoi source directory ($SOURCE_PATH)." >&2
     echo "[dotfiles] Skipping use.sh installation." >&2
