@@ -9,7 +9,7 @@
 #
 # Prerequisites:
 #   - chezmoi is installed (either in PATH or at ~/.local/bin/chezmoi)
-#   - .chezmoi-container.toml.tmpl exists in the default chezmoi source directory
+#   - .chezmoi.toml.tmpl exists in the default chezmoi source directory
 
 set -eu
 
