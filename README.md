@@ -13,7 +13,15 @@ This repository contains my personal configuration files. My setup uses chezmoi 
 - **Configuration utility**: `use.sh` allows switching between personal and work configurations within dev containers. Intended to be run after `install-devcontainer.sh`
 - **dot_***: My dotfiles
 
-## Dev Container Integration
+## chezmoi variables
+
+The following variables are used to generate appropriate configurations for different environments and contexts:
+- **Host type (`.host.type`)**: `machine` (physical/VM) or `container` (dev container)
+- **Host purpose (`.host.purpose`)**: `personal` or `work`
+- **Operating system (`.chezmoi.os`)**: Windows-specific settings when applicable
+- **Hostname (`.chezmoi.hostname`)**: Special handling for specific machines (e.g., personal desktop with Git signing keys)
+
+## Dev Container Support
 
 This setup is designed to work with VS Code dev containers through the following settings:
 
@@ -31,9 +39,9 @@ These settings ensure that:
 - This repository is cloned to the standard chezmoi source location within the container
 - The custom installation script is executed after the repo is cloned
 
-## Installation Scripts
+### Installation Scripts
 
-### install-devcontainer.sh
+#### install-devcontainer.sh
 
 **Purpose**: Automates the setup of chezmoi and essential dotfiles in a dev container environment.
 
@@ -45,7 +53,7 @@ These settings ensure that:
 
 **Usage**: This script is automatically executed by VS Code when creating dev containers (configured via the `dotfiles.installCommand` setting). To execute manually, run `install-devcontainer.sh` in the container.
 
-### use.sh
+#### use.sh
 
 **Purpose**: To complete dotfiles setup in a dev container by setting the custom chezmoi `host.purpose` data variable to either "personal" or "work" depending on the user's input. The script can also be rerun afterward to switch the purpose.
 
@@ -65,13 +73,3 @@ use work
 ```
 
 The script is automatically copied to `~/.local/bin/use` during dev container setup (via `install-devcontainer.sh`) for easy access.
-
-## Configuration Management
-
-The setup uses chezmoi's templating system and the following variables to generate appropriate configurations:
-- **Host type (`.host.type`)**: `machine` (physical/VM) or `container` (dev container)
-- **Host purpose (`.host.purpose`)**: `personal` or `work`
-- **Operating system (`.chezmoi.os`)**: Windows-specific settings when applicable
-- **Hostname (`.chezmoi.hostname`)**: Special handling for specific machines (e.g., personal desktop with Git signing keys)
-
-This allows the same dotfiles repository to provide appropriate configurations across all my environments while maintaining separation between personal and work settings.
