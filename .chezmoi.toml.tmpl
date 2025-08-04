@@ -1,6 +1,6 @@
 {{- $choices := list "machine" "container" -}}
-{{- $host_type := promptChoiceOnce . "host.type" "Host type" $choices "machine" -}}
-{{- $host_purpose := promptStringOnce . "host.purpose" "Host purpose" "personal" -}}
+{{- $host_type := promptChoice "Host type" $choices "machine" -}}
+{{- $host_purpose := promptString "Host purpose" "personal" -}}
 
 [data.host]
     type = {{ $host_type | quote }}
