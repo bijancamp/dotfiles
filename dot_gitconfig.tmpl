@@ -42,6 +42,19 @@
 {{ end }}
 
 
+{{ if eq .chezmoi.os "linux" }}
+
+##################################
+# Linux-Specific Configuration #
+##################################
+
+# Linux - All Linux environments
+[core]
+	autocrlf = input
+
+{{ end }}
+
+
 {{ if eq .host.type "container" }}
 
 ###############################
