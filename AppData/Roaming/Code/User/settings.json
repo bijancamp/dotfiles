@@ -15,6 +15,12 @@
     "files.autoSave": "onFocusChange",
     "git.inputValidation": true,
     "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
     "github.copilot.nextEditSuggestions.enabled": true,
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "https://www.plantuml.com/plantuml",
