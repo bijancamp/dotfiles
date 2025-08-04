@@ -1,3 +1,4 @@
-devcontainer-install.sh
+install-devcontainer.sh
 LICENSE
 README.md
+use.sh
