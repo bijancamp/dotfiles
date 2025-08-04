@@ -13,7 +13,7 @@ This repository contains my personal configuration files. My setup uses chezmoi 
 - **Configuration utility**: `use.sh` allows switching between personal and work configurations within dev containers. Intended to be run after `install-devcontainer.sh`
 - **dot_***: My dotfiles
 
-## chezmoi variables
+## Chezmoi Variables
 
 The following variables are used to generate appropriate configurations for different environments and contexts:
 - **Host type (`.host.type`)**: `machine` (physical/VM) or `container` (dev container)
@@ -23,7 +23,9 @@ The following variables are used to generate appropriate configurations for diff
 
 ## Dev Container Support
 
-This setup is designed to work with VS Code dev containers through the following settings:
+### VS Code Settings
+
+This system is designed to work with VS Code dev containers via the following settings:
 
 ```json
 {
