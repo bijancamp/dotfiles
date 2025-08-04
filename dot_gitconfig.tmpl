@@ -1,0 +1,58 @@
+#########################
+# General Configuration #
+#########################
+
+[user]
+	useConfigOnly = true
+
+[core]
+	editor = code --wait
+
+[init]
+	defaultBranch = main
+
+
+##################################
+# Windows-Specific Configuration #
+##################################
+
+{{- if eq .chezmoi.os "windows" }}
+
+# Windows - All Machines
+[include]
+	path = .gitconfig-windows
+
+# Windows - Personal Desktop
+{{- if eq .chezmoi.hostname "DESKTOP-DIGAGVV" }}
+[include]
+	path = .gitconfig-user-personal-signing
+
+# Windows - Work Machine
+{{- else if eq .host.purpose "work" }}
+[include]
+	path = .gitconfig-user-work
+[includeIf "gitdir:C:/Repos/GH/"]
+	path = .gitconfig-user-personal
+
+{{ end }}
+{{ end }}
+
+
+###############################
+# Dev Container Configuration #
+###############################
+
+{{ if eq .host.type "container" }}
+
+# Dev Containers - Work Use
+{{- if eq .host.purpose "work" }}
+[include]
+	path = .gitconfig-user-work
+
+# Dev Containers - Personal Use
+{{- else if eq .host.purpose "personal" }}
+[include]
+	path = .gitconfig-user-personal
+
+{{ end }}
+{{ end }}

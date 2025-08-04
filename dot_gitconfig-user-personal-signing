@@ -1,0 +1,8 @@
+[include]
+	path = .gitconfig-user-personal
+
+[user]
+	signingkey = B3337A2587EF7238
+
+[commit]
+	gpgsign = true
