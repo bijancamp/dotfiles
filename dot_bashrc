@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Needed in order to get __git_ps1 which is used in the prompt below
-if [[ -f /usr/lib/git-core/git-sh-prompt ]]; then
+if ! command -v __git_ps1 &> /dev/null && [[ -f /usr/lib/git-core/git-sh-prompt ]]; then
   source /usr/lib/git-core/git-sh-prompt
 fi
 
