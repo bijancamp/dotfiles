@@ -2,7 +2,7 @@
 
 My personal configuration files, managed with [chezmoi](https://www.chezmoi.io/).
 
-## Key Chezmoi Variables
+## Key Variables
 
 The following variables are used in generating appropriate configurations for different environments and contexts:
 - **Host type (`.host.type`)**: `machine` (physical/VM) or `container` (dev container)
@@ -10,7 +10,7 @@ The following variables are used in generating appropriate configurations for di
 - **Operating system (`.chezmoi.os`)**: Windows-specific settings when applicable
 - **Hostname (`.chezmoi.hostname`)**: Special handling for specific machines (e.g., personal desktop with Git signing keys)
 
-## Dev Container Integration
+## Dev Container Setup
 
 ### VS Code Settings
 
