@@ -38,9 +38,9 @@ Automates the initial setup of chezmoi and dotfiles within dev containers.
 
 **What it does**:
 - Installs chezmoi
-- Generates initial chezmoi configuration for containers
-- Applies essential dotfiles
-- Copies the script and `use.sh` (as `use`) to `~/.local/bin` for easy access
+- Initializes chezmoi for containers with purpose "unknown"
+- Applies dotfiles
+- Installs `use` to `~/.local/bin` for easy access
 
 **Usage**: This script is automatically executed by VS Code when creating dev containers (via the `dotfiles.installCommand` setting). To execute manually, run `install-devcontainer.sh` within the container.
 
