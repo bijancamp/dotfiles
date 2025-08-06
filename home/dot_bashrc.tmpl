@@ -1,17 +1,24 @@
-# If not running interactively, don't do anything
+###########################################
+## Early Exit for Non-Interactive Shells ##
+###########################################
+
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# Needed in order to get __git_ps1 which is used in the prompt below
-if ! command -v __git_ps1 &> /dev/null && [[ -f /usr/lib/git-core/git-sh-prompt ]]; then
-  source /usr/lib/git-core/git-sh-prompt
-fi
+############
+## Prompt ##
+############
 
 WINDOW_TITLE="Bash"
 USER="Bijan"
+
+{{ if eq .host.purpose "personal" }}
 LOCATION="Home"
+{{ else if eq .host.purpose "work" }}
+LOCATION=""
+{{ end }}
 
 LIGHT_GRAY="\[\e[0;37m\]"
 LIGHT_GREEN="\[\e[1;32m\]"
@@ -20,10 +27,22 @@ LIGHT_BLUE="\[\e[1;34m\]"
 WHITE="\[\e[1;37m\]"
 DEFAULT_COLOR="\[\e[0m\]"
 
-PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}@${LIGHT_BLUE}${LOCATION} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
+# Ensure __git_ps1 is loaded for prompt
+if ! command -v __git_ps1 &> /dev/null; then
+  source ~/.git-prompt.sh
+fi
 
-# For chezmoi and others
+PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}${LOCATION:+@${LIGHT_BLUE}${LOCATION}} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
+
+###########################
+## Environment Variables ##
+###########################
+
 export EDITOR="code --wait"
+
+########################
+## Shell Integrations ##
+########################
 
 # Enable Kiro shell integration
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
@@ -33,17 +52,34 @@ if command -v fnm &> /dev/null; then
   eval "$(fnm env --use-on-cd --shell bash)"
 fi
 
+#########################
+## Completion Behavior ##
+#########################
+
 bind 'TAB':menu-complete
 bind '"\e[Z"':menu-complete-backward
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 
+#############
+## Aliases ##
+#############
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias cdr="cd /c/Repos"
 alias ch="chezmoi"
+
+##################
+## Windows-Only ##
+##################
+
+{{ if eq .chezmoi.os "windows" }}
+
+alias cdr="cd /c/Repos"
+
+{{ if eq .host.purpose "work" }}
 
 alias build="build_closest -verbosity:minimal -clp:errorsonly"
 alias rebuild="build_closest -t:rebuild -verbosity:minimal -clp:errorsonly"
@@ -89,3 +125,6 @@ directory_buildable () {
 
   return 1
 }
+
+{{ end }}
+{{ end }}
