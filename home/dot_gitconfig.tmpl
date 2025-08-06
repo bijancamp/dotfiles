@@ -52,10 +52,25 @@
 [core]
 	autocrlf = input
 
+{{ if eq .host.type "machine" }}
+{{ if eq .host.purpose "personal" }}
+
+# Linux - Either Native or WSL - Personal Use
+[include]
+	path = .gitconfig-user-personal
+
+{{ else if eq .host.purpose "work" }}
+
+# Linux - Either Native or WSL - Work Use
+# Use work-specific config by default except for gh repos
+[include]
+	path = .gitconfig-user-work
+[includeIf "gitdir:~/repos/gh/"]
+	path = .gitconfig-user-personal
+
 {{ end }}
 
-
-{{ if eq .host.type "container" }}
+{{ else if eq .host.type "container" }}
 
 ###############################
 # Dev Container Configuration #
@@ -73,5 +88,6 @@
 [include]
 	path = .gitconfig-user-work
 
+{{ end }}
 {{ end }}
 {{ end }}
