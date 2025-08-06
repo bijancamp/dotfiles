@@ -99,11 +99,11 @@ alias chia="chezmoi init --apply --verbose"
 alias chm="chezmoi merge"
 alias chma="chezmoi merge-all"
 
+{{ if eq .chezmoi.os "windows" }}
+
 ##################
 ## Windows-Only ##
 ##################
-
-{{ if eq .chezmoi.os "windows" }}
 
 alias cdr="cd /c/Repos"
 
