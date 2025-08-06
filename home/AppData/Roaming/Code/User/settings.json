@@ -13,6 +13,8 @@
     "editor.inlineSuggest.enabled": true,
     "editor.renderWhitespace": "boundary",
     "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "git.inputValidation": true,
     "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
     "github.copilot.enable": {
