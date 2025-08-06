@@ -38,6 +38,26 @@ PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}${LOCATION:+@${LIG
 ## Environment Variables ##
 ###########################
 
+# Prepends a directory to PATH only if it's not already present
+prepend_path() {
+  local dir="$1"
+  if [[ -z "${dir}" ]]; then
+    echo "Usage: prepend_path <directory>" >&2
+    return 1
+  fi
+
+  case ":${PATH}:" in
+    *:"${dir}":*)
+      # already in PATH, do nothing
+      ;;
+    *)
+      export PATH="${dir}:${PATH}"
+      ;;
+  esac
+}
+
+prepend_path "$HOME/.local/bin"
+
 export EDITOR="code --wait"
 
 ########################
