@@ -61,17 +61,17 @@
 # Dev Container Configuration #
 ###############################
 
-{{ if eq .host.purpose "work" }}
-
-# Dev Containers - Work Use
-[include]
-	path = .gitconfig-user-work
-
-{{ else if eq .host.purpose "personal" }}
+{{ if eq .host.purpose "personal" }}
 
 # Dev Containers - Personal Use
 [include]
 	path = .gitconfig-user-personal
+
+{{ else if eq .host.purpose "work" }}
+
+# Dev Containers - Work Use
+[include]
+	path = .gitconfig-user-work
 
 {{ end }}
 {{ end }}
