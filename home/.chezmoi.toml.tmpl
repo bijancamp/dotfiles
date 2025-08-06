@@ -3,6 +3,9 @@
 {{- $host_purpose_choices := list "personal" "work" "unknown" -}}
 {{- $host_purpose := promptChoice "Host purpose" $host_purpose_choices "personal" -}}
 
+[data]
+    company = "JDXpert"
+
 [data.host]
     type = {{ $host_type | quote }}
     purpose = {{ $host_purpose | quote }}

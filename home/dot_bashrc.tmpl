@@ -11,28 +11,55 @@ esac
 ## Prompt ##
 ############
 
-WINDOW_TITLE="Bash"
-USER="Bijan"
-
-{{ if eq .host.purpose "personal" }}
-LOCATION="Home"
-{{ else if eq .host.purpose "work" }}
-LOCATION=""
-{{ end }}
-
 LIGHT_GRAY="\[\e[0;37m\]"
+LIGHT_RED="\[\e[1;31m\]"
 LIGHT_GREEN="\[\e[1;32m\]"
 YELLOW="\[\e[1;33m\]"
 LIGHT_BLUE="\[\e[1;34m\]"
 WHITE="\[\e[1;37m\]"
 DEFAULT_COLOR="\[\e[0m\]"
 
+WINDOW_TITLE="Bash"
+USER="Bijan"
+
+COMPANY="{{- .company }}"
+HOST_PURPOSE="{{- .host.purpose }}"
+SUBCONTEXT=""
+
+# Determine context/subcontext based on host type and/or purpose
+{{ if eq .host.type "container" }}
+CONTEXT="Virtual"
+SUBCONTEXT="{{- .host.purpose }}"
+{{ else }}
+if [[ "${HOST_PURPOSE,,}" == "personal" ]]; then
+  CONTEXT="Home"
+elif [[ "${HOST_PURPOSE,,}" == "work" ]]; then
+  CONTEXT="${COMPANY:-Unknown}"
+else
+  CONTEXT="Unknown"
+fi
+{{ end }}
+
+# Lowercase if on non-Windows/macOS
+{{ if (not (eq .chezmoi.os "windows" "darwin")) }}
+USER="${USER,,}"
+CONTEXT="${CONTEXT,,}"
+SUBCONTEXT="${SUBCONTEXT,,}"
+{{ end }}
+
+# Build context segment of prompt
+if [[ -n "${SUBCONTEXT}" ]]; then
+  CONTEXT_PROMPT_STRING="${LIGHT_BLUE}${CONTEXT}${WHITE}:${LIGHT_RED}${SUBCONTEXT}"
+else
+  CONTEXT_PROMPT_STRING="${LIGHT_BLUE}${CONTEXT}"
+fi
+
 # Ensure __git_ps1 is loaded for prompt
 if ! command -v __git_ps1 &> /dev/null; then
   source ~/.git-prompt.sh
 fi
 
-PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}${LOCATION:+@${LIGHT_BLUE}${LOCATION}} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
+PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}@${CONTEXT_PROMPT_STRING} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
 
 ###########################
 ## Environment Variables ##
