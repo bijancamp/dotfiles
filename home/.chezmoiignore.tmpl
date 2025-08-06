@@ -8,6 +8,6 @@ AppData
 .gitconfig-windows
 {{ end }}
 
-{{ if ne .chezmoi.hostname "DESKTOP-DIGAGVV" }}
+{{ if (not (and (eq .chezmoi.os "windows") (eq .chezmoi.hostname "DESKTOP-DIGAGVV"))) }}
 .gitconfig-user-personal-signing
 {{ end }}
