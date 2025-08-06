@@ -30,9 +30,7 @@ These settings ensure that:
 - This repository is cloned to the default chezmoi source path within the container
 - The custom installation script is executed after the repo is cloned
 
-### Installation Scripts
-
-#### install-devcontainer.sh
+### install-devcontainer.sh
 
 Automates the initial setup of chezmoi and dotfiles within dev containers.
 
@@ -40,27 +38,5 @@ Automates the initial setup of chezmoi and dotfiles within dev containers.
 - Installs chezmoi
 - Initializes chezmoi for containers with purpose "unknown"
 - Applies dotfiles
-- Installs `use` to `~/.local/bin` for easy access
 
-**Usage**: This script is automatically executed by VS Code when creating dev containers (via the `dotfiles.installCommand` setting). To execute manually, run `install-devcontainer.sh` within the container.
-
-#### use.sh
-
-Configures chezmoi for either personal or work use and reapplies dotfiles.
-
-**What it does**:
-- Prompts for container purpose (personal/work) or accepts command-line argument
-- Sets the custom chezmoi `host.purpose` variable accordingly
-- Regenerates dotfiles using the updated purpose
-
-**Usage**:
-```bash
-# Interactive mode (will prompt for choice)
-use
-
-# Direct mode
-use personal
-use work
-```
-
-The script is automatically copied to `~/.local/bin/use` during dev container setup (via `install-devcontainer.sh`) for easy access.
+**Usage**: This script is automatically executed by VS Code when creating dev containers (via the `dotfiles.installCommand` setting). Run `chezmoi init --apply` after the container has finished starting to reapply the dotfiles with the necessary purpose.
