@@ -1,3 +1,7 @@
+{{ if ne .chezmoi.os "linux" }}
+.hushlogin
+{{ end }}
+
 {{ if ne .chezmoi.os "windows" }}
 AppData
 .minttyrc
