@@ -117,15 +117,15 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias ch="chezmoi"
-alias cha="chezmoi apply --verbose"
+alias cha="chezmoi apply --verbose && source ~/.bashrc"
 alias chcd="chezmoi cd"
 alias chd="chezmoi diff"
-alias che="chezmoi edit"
+alias che="chezmoi edit && source ~/.bashrc"
 alias chi="chezmoi init --verbose"
-alias chia="chezmoi init --apply --verbose"
+alias chia="chezmoi init --apply --verbose && source ~/.bashrc"
 alias chm="chezmoi merge"
 alias chma="chezmoi merge-all"
-alias chu="chezmoi update"
+alias chu="chezmoi update && source ~/.bashrc"
 
 {{ if eq .chezmoi.os "windows" }}
 
