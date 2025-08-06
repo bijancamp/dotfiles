@@ -6,7 +6,7 @@ My personal configuration files, managed with [chezmoi](https://www.chezmoi.io/)
 
 The following variables are used in generating appropriate configurations for different environments and contexts:
 - **Host type (`.host.type`)**: `native`, `wsl`, or `container` (for dev containers and possibly other containerized environments)
-- **Host purpose (`.host.purpose`)**: `personal` or `work`
+- **Host purpose (`.host.purpose`)**: `personal`, `work`, or `unknown`.
 - **Operating system (`.chezmoi.os`)**: Windows-specific settings when applicable
 - **Hostname (`.chezmoi.hostname`)**: Special handling for specific machines (e.g., personal desktop with Git signing keys)
 
