@@ -1,6 +1,9 @@
-{{ if eq .chezmoi.os "linux" }}
+{{ if ne .chezmoi.os "windows" }}
 AppData
 .minttyrc
-.gitconfig-user-personal-signing
 .gitconfig-windows
+{{ end }}
+
+{{ if ne .chezmoi.hostname "DESKTOP-DIGAGVV" }}
+.gitconfig-user-personal-signing
 {{ end }}
