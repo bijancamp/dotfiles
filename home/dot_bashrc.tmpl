@@ -7,6 +7,7 @@ case $- in
       *) return;;
 esac
 
+
 ############
 ## Prompt ##
 ############
@@ -61,6 +62,7 @@ fi
 
 PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}@${CONTEXT_PROMPT_STRING} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
 
+
 ###########################
 ## Environment Variables ##
 ###########################
@@ -87,6 +89,7 @@ prepend_path "$HOME/.local/bin"
 
 export EDITOR="code --wait"
 
+
 ########################
 ## Shell Integrations ##
 ########################
@@ -99,6 +102,7 @@ if command -v fnm &> /dev/null; then
   eval "$(fnm env --use-on-cd --shell bash)"
 fi
 
+
 #########################
 ## Completion Behavior ##
 #########################
@@ -107,6 +111,7 @@ bind 'TAB':menu-complete
 bind '"\e[Z"':menu-complete-backward
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
+
 
 #############
 ## Aliases ##
@@ -117,17 +122,54 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias ch="chezmoi"
-alias cha="chezmoi apply --verbose && source ~/.bashrc"
+alias cha="chezmoi-apply-reload-bash-config --verbose"
 alias chcd="chezmoi cd"
 alias chd="chezmoi diff"
-alias che="chezmoi edit && source ~/.bashrc"
+alias che="chezmoi-edit-reload-bash-config"
 alias chi="chezmoi init --verbose"
-alias chia="chezmoi init --apply --verbose && source ~/.bashrc"
+alias chia="chezmoi-init-apply-reload-bash-config --verbose"
 alias chm="chezmoi merge"
 alias chma="chezmoi merge-all"
-alias chu="chezmoi update && source ~/.bashrc"
+alias chu="chezmoi-update-reload-bash-config"
+
+
+###############
+## Functions ##
+###############
+
+chezmoi-run-and-reload-bash-config() {
+  chezmoi "$@" && source ~/.bashrc
+}
+
+chezmoi-init-apply-reload-bash-config() {
+  chezmoi-run-and-reload-bash-config init --apply "$@"
+}
+
+chezmoi-apply-reload-bash-config() {
+  chezmoi-run-and-reload-bash-config apply "$@"
+}
+
+chezmoi-update-reload-bash-config() {
+  chezmoi-run-and-reload-bash-config update "$@"
+}
+
+chezmoi-edit-reload-bash-config() {
+  local target_file="${1:-}"
+  chezmoi edit "$@"
+
+  # Only source if editing ~/.bashrc
+  if command -v readlink &> /dev/null; then
+    local target_abs_path="$(readlink -e "$target_file" 2>/dev/null)"
+    local bashrc_abs_path="$(readlink -e ~/.bashrc 2>/dev/null)"
+
+    if [[ -n "$target_abs_path" && -n "$bashrc_abs_path" && "$target_abs_path" == "$bashrc_abs_path" ]]; then
+      source ~/.bashrc
+    fi
+  fi
+}
 
 {{ if eq .chezmoi.os "windows" }}
+
 
 ##################
 ## Windows-Only ##
