@@ -33,7 +33,7 @@
 # Windows - Work Machine
 # Use work-specific config by default except for GH repos
 [include]
-	path = .gitconfig-user-work
+	path = .secretfiles/gitconfig-user-work
 [includeIf "gitdir:C:/Repos/GH/"]
 	path = .gitconfig-user-personal
 
@@ -70,7 +70,7 @@
 # Linux - Either Native or WSL - Work Use
 # Use work-specific config by default except for gh repos
 [include]
-	path = .gitconfig-user-work
+	path = .secretfiles/gitconfig-user-work
 [includeIf "gitdir:~/repos/gh/"]
 	path = .gitconfig-user-personal
 
@@ -92,7 +92,7 @@
 
 # Dev Containers - Work Use
 [include]
-	path = .gitconfig-user-work
+	path = .secretfiles/gitconfig-user-work
 
 {{ end }}
 {{ end }}

@@ -1,3 +1,3 @@
-[".gitconfig-user-work"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/bijancamp/dotfiles-secrets/refs/heads/main/dot_gitconfig-user-work"
+[".secretfiles"]
+    type = "git-repo"
+    url = "https://github.com/bijancamp/secretfiles.git"
