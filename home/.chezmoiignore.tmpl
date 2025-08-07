@@ -11,3 +11,7 @@ AppData
 {{ if (not (and (eq .chezmoi.os "windows") (eq .chezmoi.hostname "DESKTOP-DIGAGVV"))) }}
 .gitconfig-user-personal-signing
 {{ end }}
+
+{{ if eq .host.purpose "personal" }}
+.gitconfig-user-work
+{{ end }}
