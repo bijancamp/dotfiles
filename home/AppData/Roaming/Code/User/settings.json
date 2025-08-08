@@ -23,6 +23,7 @@
         "markdown": true,
         "scminput": false
     },
+    "gitlens.currentLine.enabled": false,
     "github.copilot.nextEditSuggestions.enabled": true,
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "https://www.plantuml.com/plantuml",
