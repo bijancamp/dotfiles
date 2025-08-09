@@ -28,7 +28,7 @@ Inspired by: https://github.com/glzr-io/glazewm/discussions/66#discussioncomment
 import asyncio
 import json
 import websockets
-
+from websockets.exceptions import ConnectionClosed
 
 DISPLAY_WIDTH = 1920
 WS_URI = "ws://localhost:6123"
@@ -41,28 +41,25 @@ async def main():
         while True:
             try:
                 response = await websocket.recv()
-                json_response = json.loads(response)
+            except ConnectionClosed:
+                print("GlazeWM websocket closed--exiting.")
+                return
 
-                try:
-                    width_val = json_response["data"]["focusedContainer"]["width"]
-                except KeyError:
-                    continue
+            json_response = json.loads(response)
 
-                # Make sure width is a number
-                try:
-                    width = float(width_val)
-                except (TypeError, ValueError):
-                    print(f"Warning: width is missing or not numeric in JSON response: {json_response}")
-                    continue
+            try:
+                width_val = json_response["data"]["focusedContainer"]["width"]
+            except KeyError:
+                continue
 
-                direction = "horizontal" if width == DISPLAY_WIDTH else "vertical"
+            try:
+                width = float(width_val)
+            except (TypeError, ValueError):
+                print(f"Warning: width is missing or not numeric in JSON response: {json_response}")
+                continue
 
-                try:
-                    await websocket.send(f'command set-tiling-direction {direction}')
-                except Exception as e:
-                    print(f"Error sending command: {e}")
-            except Exception as e:
-                print(f"Error: {e}")
+            direction = "horizontal" if width == DISPLAY_WIDTH else "vertical"
+            await websocket.send(f'command set-tiling-direction {direction}')
 
 
 if __name__ == "__main__":
