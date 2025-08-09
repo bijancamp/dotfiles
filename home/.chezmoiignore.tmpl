@@ -4,8 +4,9 @@
 
 {{ if ne .chezmoi.os "windows" }}
 AppData
-.minttyrc
 .gitconfig-windows
+.glzr
+.minttyrc
 {{ end }}
 
 {{ if (not (and (eq .chezmoi.os "windows") (eq .chezmoi.hostname "DESKTOP-DIGAGVV"))) }}
