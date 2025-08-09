@@ -51,7 +51,19 @@ keybinds:
     - command: whim.core.focus_previous_monitor
       keybind: LCtrl+LShift+LAlt+J
 
-  unify_key_modifiers: true
+    - command: whim.core.activate_previous_workspace
+      keybind: RAlt+A
+
+    - command: whim.core.activate_next_workspace
+      keybind: RAlt+S
+
+    - command: whim.core.exit_whim
+      keybind: RAlt+RShift+E
+
+    - command: whim.core.restart_whim
+      keybind: RAlt+RShift+C
+
+  unify_key_modifiers: false
 
 filters:
   entries: []
@@ -83,8 +95,8 @@ plugins:
 
   gaps:
     is_enabled: true
-    outer_gap: 10
-    inner_gap: 10
+    outer_gap: -2
+    inner_gap: 3
     default_outer_delta: 2
     default_inner_delta: 2
 
