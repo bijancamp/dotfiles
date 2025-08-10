@@ -157,6 +157,12 @@ window_rules:
       - window_process: { equals: 'POWERPNT' }
         window_class: { not_regex: 'PPTFrameClass' }
       - window_process: { equals: 'cs2' }
+        window_class: { equals: 'SDL_app' }
+
+  - commands: ['set-floating']
+    match:
+      - window_process: { equals: 'steamwebhelper' }
+        window_class: { equals: 'SDL_app' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
