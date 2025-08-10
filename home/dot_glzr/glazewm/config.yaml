@@ -161,6 +161,7 @@ window_rules:
 
   - commands: ['set-floating']
     match:
+      # Floating rules for various 3rd-party apps.
       - window_process: { equals: 'steamwebhelper' }
         window_class: { equals: 'SDL_app' }
 
