@@ -60,7 +60,7 @@ if ! command -v __git_ps1 &> /dev/null; then
   source ~/.git-prompt.sh
 fi
 
-PS1="\[\e]0;${WINDOW_TITLE}\a\]\n${LIGHT_GREEN}${USER}${WHITE}@${CONTEXT_PROMPT_STRING} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
+PS1="\[\e]0;${WINDOW_TITLE}\a\]${LIGHT_GREEN}${USER}${WHITE}@${CONTEXT_PROMPT_STRING} ${YELLOW}\w${LIGHT_GRAY}"'`__git_ps1`'"${DEFAULT_COLOR}\n$ "
 
 
 ###########################
