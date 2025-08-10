@@ -164,22 +164,6 @@ window_rules:
       - window_process: { equals: 'steamwebhelper' }
         window_class: { equals: 'SDL_app' }
 
-binding_modes:
-  # When enabled, the focused window can be resized via arrow keys or HJKL.
-  - name: 'resize'
-    keybindings:
-      - commands: ['resize --width -2%']
-        bindings: ['h', 'left']
-      - commands: ['resize --width +2%']
-        bindings: ['l', 'right']
-      - commands: ['resize --height +2%']
-        bindings: ['k', 'up']
-      - commands: ['resize --height -2%']
-        bindings: ['j', 'down']
-      # Press enter/escape to return to default keybindings.
-      - commands: ['wm-disable-binding-mode --name resize']
-        bindings: ['escape', 'enter']
-
 keybindings:
   # Shift focus in a given direction.
   - commands: ['focus --direction left']
@@ -211,12 +195,6 @@ keybindings:
   - commands: ['resize --height -2%']
     bindings: ['alt+shift+-']
 
-  # As an alternative to the resize keybindings above, resize mode enables
-  # resizing via arrow keys or HJKL. The binding mode is defined above with
-  # the name 'resize'.
-  # - commands: ['wm-enable-binding-mode --name resize']
-  #   bindings: ['alt+r']
-
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
   - commands: ['wm-toggle-pause']
@@ -237,7 +215,7 @@ keybindings:
 
   # Change the focused window to be tiling.
   - commands: ['toggle-tiling']
-    bindings: ['alt+g']
+    bindings: ['alt+s']
 
   # Change the focused window to be fullscreen.
   - commands: ['toggle-fullscreen']
@@ -249,7 +227,7 @@ keybindings:
 
   # Close focused window.
   - commands: ['close']
-    bindings: ['alt+q']
+    bindings: ['alt+w']
 
   # Kill GlazeWM process safely.
   - commands: ['wm-exit']
@@ -263,21 +241,15 @@ keybindings:
   - commands: ['wm-redraw']
     bindings: ['alt+shift+r']
 
-  # Launch CMD terminal. Alternatively, use `shell-exec wt` or
-  # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
-  # Terminal and Git Bash respectively.
-  # - commands: ['shell-exec wt']
-  #   bindings: ['alt+;']
-
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: ['focus --next-active-workspace']
-    bindings: ['alt+s']
+    bindings: ['alt+o']
   - commands: ['focus --prev-active-workspace']
-    bindings: ['alt+a']
+    bindings: ['alt+i']
 
   # Focus the workspace that last had focus.
   - commands: ['focus --recent-workspace']
-    bindings: ['alt+w']
+    bindings: ['alt+q']
 
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ['focus --workspace 1']
