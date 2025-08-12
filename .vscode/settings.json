@@ -2,7 +2,6 @@
     "files.associations": {
         "*.toml*": "ini",
         "*.yaml*": "yaml",
-        "*.yml*": "yaml",
         "dot_bash_profile*": "shellscript",
         "dot_bashrc*": "shellscript",
         "dot_gitconfig*": "properties",
