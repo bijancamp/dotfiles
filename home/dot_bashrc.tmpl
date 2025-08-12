@@ -169,8 +169,8 @@ chezmoi-edit-reload-bash-config() {
   fi
 }
 
-{{ if eq .chezmoi.os "windows" }}
 
+{{ if eq .chezmoi.os "windows" }}
 
 ##################
 ## Windows-Only ##
@@ -226,4 +226,15 @@ directory_buildable () {
 }
 
 {{ end }}
+{{ end }}
+
+
+{{ if eq .chezmoi.os "linux" }}
+
+##################
+## Linux-Only ##
+##################
+
+alias cdr="cd ~/repos"
+
 {{ end }}
