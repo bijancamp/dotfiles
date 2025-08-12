@@ -27,12 +27,62 @@ Inspired by: https://github.com/glzr-io/glazewm/discussions/66#discussioncomment
 
 import asyncio
 import json
+import ctypes
+from ctypes import wintypes
 import websockets
 from websockets.exceptions import ConnectionClosed
 
-DISPLAY_WIDTH = 1920
 WS_URI = "ws://localhost:6123"
 
+
+# Make the process DPI-aware so pixel sizes match reality on HiDPI displays
+try:
+    ctypes.windll.user32.SetProcessDPIAware()
+except Exception:
+    pass  # older Windows: ignore if not available
+
+class RECT(ctypes.Structure):
+    _fields_ = [
+        ("left",   wintypes.LONG),
+        ("top",    wintypes.LONG),
+        ("right",  wintypes.LONG),
+        ("bottom", wintypes.LONG),
+    ]
+
+class MONITORINFO(ctypes.Structure):
+    _fields_ = [
+        ("cbSize",    wintypes.DWORD),
+        ("rcMonitor", RECT),
+        ("rcWork",    RECT),
+        ("dwFlags",   wintypes.DWORD),
+    ]
+
+_user32 = ctypes.windll.user32
+
+def _primary_monitor_width() -> int:
+    # SM_CXSCREEN = 0
+    return _user32.GetSystemMetrics(0)
+
+def get_active_monitor_width() -> int:
+    """Returns the width (in pixels) of the monitor of the foreground window."""
+    hwnd = _user32.GetForegroundWindow()
+
+    if not hwnd:
+        return _primary_monitor_width()
+
+    # MONITOR_DEFAULTTONEAREST = 2
+    hmon = _user32.MonitorFromWindow(hwnd, 2)
+
+    if not hmon:
+        return _primary_monitor_width()
+
+    mi = MONITORINFO()
+    mi.cbSize = ctypes.sizeof(MONITORINFO)
+
+    if not _user32.GetMonitorInfoW(hmon, ctypes.byref(mi)):
+        return _primary_monitor_width()
+
+    return int(mi.rcMonitor.right - mi.rcMonitor.left)
 
 async def main():
     async with websockets.connect(WS_URI) as websocket:
@@ -45,22 +95,21 @@ async def main():
                 print("GlazeWM websocket closed--exiting.")
                 return
 
-            json_response = json.loads(response)
-
             try:
-                width_val = json_response["data"]["focusedContainer"]["width"]
-            except KeyError:
+                width_val = json.loads(response)["data"]["focusedContainer"]["width"]
+            except (KeyError, json.JSONDecodeError):
                 continue
 
             try:
-                width = float(width_val)
+                focused_container_width = float(width_val)
             except (TypeError, ValueError):
-                print(f"Warning: width is missing or not numeric in JSON response: {json_response}")
+                print(f"Warning: width is missing or not numeric in response: {response}")
                 continue
 
-            direction = "horizontal" if width == DISPLAY_WIDTH else "vertical"
-            await websocket.send(f'command set-tiling-direction {direction}')
+            monitor_width = float(get_active_monitor_width())
+            direction = "horizontal" if focused_container_width == monitor_width else "vertical"
 
+            await websocket.send(f"command set-tiling-direction {direction}")
 
 if __name__ == "__main__":
     asyncio.run(main())
