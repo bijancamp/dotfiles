@@ -134,12 +134,10 @@ alias gc="git commit"
 alias gca="git commit -a"
 alias gcm="git commit -m"
 alias gcam="git commit -a -m"
-
-# Git: Amend commit
-alias gA="git commit --amend"
-alias gAa="git commit --amend -a"
-alias gAm="git commit --amend -m"
-alias gAam="git commit --amend -a -m"
+alias gcA="git commit --amend"
+alias gcAa="git commit --amend -a"
+alias gcAm="git commit --amend -m"
+alias gcAam="git commit --amend -a -m"
 
 # Git: Status, diffs & logs
 alias gs="git status"
@@ -153,8 +151,31 @@ alias gst="git stash"
 # Git: Branch/checkout
 alias gco="git checkout"
 alias gcob="git checkout -b"
+alias gbc="git checkout"
+alias gbn="git checkout -b"
+alias gbR="git branch -m"
 
-# Push & pull
+# Git: Merge
+alias gM="git merge"
+
+# Git: Reset
+alias gg="git reset"
+alias ggh="git reset --hard"
+alias ggm="git reset --mixed"
+alias ggs="git reset --soft"
+
+# Git: Rebase
+alias gR="git rebase"
+alias gRa="git rebase --abort"
+alias gRc="git rebase --continue"
+alias gRi="git rebase -i"
+
+# Git: Cherry-pick
+alias gcp="git cherry-pick"
+alias gcpa="git cherry-pick --abort"
+alias gcpc="git cherry-pick --continue"
+
+# Git: Push & pull
 alias gP="git push"
 alias gPf="git push -f"
 alias gp="git pull"
