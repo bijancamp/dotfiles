@@ -1,10 +1,4 @@
 {
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
     "dev.containers.copyGitConfig": false,
     "dotfiles.installCommand": "install-devcontainer.sh",
     "dotfiles.repository": "bijancamp/dotfiles",
