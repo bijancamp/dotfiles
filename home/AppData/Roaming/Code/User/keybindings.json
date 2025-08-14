@@ -1,7 +1,7 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "alt+0",
+        "key": "ctrl+alt+.",
         "command": "cursorMove",
         "args": {
             "to": "nextBlankLine",
@@ -10,7 +10,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "alt+9",
+        "key": "ctrl+alt+,",
         "command": "cursorMove",
         "args": {
             "to": "prevBlankLine",
@@ -19,7 +19,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "alt+shift+0",
+        "key": "ctrl+alt+shift+.",
         "command": "cursorMove",
         "args": {
             "to": "nextBlankLine",
@@ -28,7 +28,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "alt+shift+9",
+        "key": "ctrl+alt+shift+,",
         "command": "cursorMove",
         "args": {
             "to": "prevBlankLine",
