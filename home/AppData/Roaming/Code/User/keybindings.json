@@ -1,6 +1,42 @@
 // Place your key bindings in this file to override the defaults
 [
     {
+        "key": "alt+0",
+        "command": "cursorMove",
+        "args": {
+            "to": "nextBlankLine",
+            "select": false
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+9",
+        "command": "cursorMove",
+        "args": {
+            "to": "prevBlankLine",
+            "select": false
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+shift+0",
+        "command": "cursorMove",
+        "args": {
+            "to": "nextBlankLine",
+            "select": true
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+shift+9",
+        "command": "cursorMove",
+        "args": {
+            "to": "prevBlankLine",
+            "select": true
+        },
+        "when": "editorTextFocus"
+    },
+    {
         "key": "shift+alt+q",
         "command": "rewrap.rewrapComment",
         "when": "editorTextFocus"
