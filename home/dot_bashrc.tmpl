@@ -117,10 +117,48 @@ bind 'set show-all-if-ambiguous on'
 ## Aliases ##
 #############
 
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# Grep
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 
+# Git: General
+alias g="git"
+alias gi="git init"
+
+# Git: Add
+alias ga="git add"
+
+# Git: Commit
+alias gc="git commit"
+alias gca="git commit -a"
+alias gcm="git commit -m"
+alias gcam="git commit -a -m"
+
+# Git: Amend commit
+alias gm="git commit --amend"
+alias gma="git commit --amend -a"
+alias gmm="git commit --amend -m"
+alias gmam="git commit --amend -a -m"
+
+# Git: Status, diffs & logs
+alias gs="git status"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gl="git log"
+
+# Git: Stash
+alias gst="git stash"
+
+# Git: Branch/checkout
+alias gco="git checkout"
+alias gcob="git checkout -b"
+
+# Git: Restore
+alias gr="git restore"
+alias grs="git restore --staged"
+
+# chezmoi
 alias ch="chezmoi"
 alias cha="chezmoi-apply-reload-bash-config --verbose"
 alias chcd="chezmoi cd"
@@ -133,6 +171,7 @@ alias chm="chezmoi merge"
 alias chma="chezmoi merge-all"
 alias chu="chezmoi-update-reload-bash-config --verbose"
 
+# lazygit
 alias lg="lazygit"
 
 
