@@ -28,6 +28,7 @@
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "https://www.plantuml.com/plantuml",
     "telemetry.telemetryLevel": "off",
+    "terminal.external.windowsExec": "wt.exe",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "trailing-spaces.highlightCurrentLine": false,
     "window.restoreWindows": "none",
