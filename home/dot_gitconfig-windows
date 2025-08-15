@@ -1,22 +1,11 @@
 [core]
 	autocrlf = true
 
-[diff]
-	tool = bc
-	guitool = bc
-
 [difftool "bc"]
 	cmd = BComp.exe \"$LOCAL\" \"$REMOTE\"
 
 [difftool]
 	prompt = false
-
-[merge]
-	tool = bc
-	guitool = bc
-
-[mergetool "bc"]
-	cmd = BComp.exe \"$REMOTE\" \"$LOCAL\" /savetarget=\"$MERGED\" /lro
 
 [mergetool "console"]
 	cmd = BComp.exe \"$REMOTE\" \"$LOCAL\" //savetarget=\"$MERGED\" //title1=\"Remote - $MERGED\" //title2=\"Local - $MERGED\" //lro
