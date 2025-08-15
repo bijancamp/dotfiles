@@ -37,16 +37,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "shift+alt+q",
-        "command": "rewrap.rewrapComment",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "alt+q",
-        "command": "-rewrap.rewrapComment",
-        "when": "editorTextFocus"
-    },
-    {
         "key": "ctrl+alt+l",
         "command": "lazygit-vscode.toggle"
     },
