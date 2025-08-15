@@ -19,10 +19,14 @@ YELLOW="\[\e[1;33m\]"
 WHITE="\[\e[1;37m\]"
 DEFAULT_COLOR="\[\e[0m\]"
 
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  BLUE="\[\e[0;34m\]"
-else
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
   BLUE="\[\e[1;34m\]"
+else
+  {{ if eq .chezmoi.os "windows" }}
+  BLUE="\[\e[0;34m\]"
+  {{ else }}
+  BLUE="\[\e[1;34m\]"
+  {{ end }}
 fi
 
 WINDOW_TITLE="Bash"
