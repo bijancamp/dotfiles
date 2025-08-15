@@ -4,5 +4,5 @@
 [difftool "bc"]
 	cmd = BComp.exe \"$LOCAL\" \"$REMOTE\"
 
-[mergetool "console"]
+[mergetool "bc-console"]
 	cmd = BComp.exe \"$REMOTE\" \"$LOCAL\" //savetarget=\"$MERGED\" //title1=\"Remote - $MERGED\" //title2=\"Local - $MERGED\" //lro
