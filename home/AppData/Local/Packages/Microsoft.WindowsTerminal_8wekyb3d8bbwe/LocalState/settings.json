@@ -73,7 +73,9 @@
                 "guid": "{00000000-0000-0000-ba54-000000000002}",
                 "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
                 "name": "Bash",
-                "startingDirectory": "%USERPROFILE%"
+                "startingDirectory": "%USERPROFILE%",
+                "suppressApplicationTitle": false,
+                "tabTitle": "Bash"
             },
             {
                 "colorScheme": "Raspberry Ubuntu",
@@ -91,7 +93,7 @@
                 "opacity": 98,
                 "padding": "5, 5, 5, 5",
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
-                "suppressApplicationTitle": true,
+                "suppressApplicationTitle": false,
                 "tabTitle": "Ubuntu",
                 "useAcrylic": false
             },
@@ -117,6 +119,40 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "colorScheme": "Flat-UI",
+                "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l -c \"lazygit; exec bash\"",
+                "cursorShape": "underscore",
+                "guid": "{4ffaecda-5f61-4018-ae06-68b4dec06d29}",
+                "hidden": true,
+                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "Lazygit (Bash)",
+                "startingDirectory": "C:\\Repos",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Lazygit (Bash)"
+            },
+            {
+                "colorScheme": "Raspberry Ubuntu",
+                "commandline": "wsl.exe -d Ubuntu --exec bash -i -l -c \"lazygit; exec bash\"",
+                "cursorColor": "#FFFFFF",
+                "cursorShape": "bar",
+                "font":
+                {
+                    "face": "Cascadia Code",
+                    "size": 12.0
+                },
+                "guid": "{a11731c1-6071-4d00-8329-4c435f3c6e8d}",
+                "hidden": true,
+                "icon": "ms-appdata:///roaming/ubuntu_32px.png",
+                "name": "Lazygit (Ubuntu)",
+                "opacity": 98,
+                "padding": "5, 5, 5, 5",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "startingDirectory": "~/repos",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Lazygit (Ubuntu)",
+                "useAcrylic": false
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
