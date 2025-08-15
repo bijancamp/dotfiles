@@ -17,11 +17,17 @@
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
 
+[difftool]
+	prompt = false
+
 [merge]
     tool = code
 
 [mergetool "code"]
     cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
+[mergetool]
+	keepBackup = false
 
 
 {{ if eq .chezmoi.os "windows" }}
