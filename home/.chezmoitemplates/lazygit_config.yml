@@ -1,6 +1,11 @@
-notARepository: 'skip'
-
 gui:
   theme:
     selectedLineBgColor:
       - reverse
+
+notARepository: 'skip'
+promptToReturnFromSubprocess: false
+
+keybinding:
+  universal:
+    openDiffTool: 'Z'
