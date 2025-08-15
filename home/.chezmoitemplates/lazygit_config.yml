@@ -1,1 +1,6 @@
 notARepository: 'skip'
+
+gui:
+  theme:
+    selectedLineBgColor:
+      - reverse
