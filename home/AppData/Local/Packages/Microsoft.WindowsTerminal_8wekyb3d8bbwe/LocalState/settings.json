@@ -130,7 +130,7 @@
                 "name": "Lazygit (Bash)",
                 "startingDirectory": "C:\\Repos",
                 "suppressApplicationTitle": true,
-                "tabTitle": "Lazygit (Bash)"
+                "tabTitle": "Lazygit"
             },
             {
                 "colorScheme": "Raspberry Ubuntu",
@@ -151,7 +151,7 @@
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
                 "startingDirectory": "~/repos",
                 "suppressApplicationTitle": true,
-                "tabTitle": "Lazygit (Ubuntu)",
+                "tabTitle": "Lazygit",
                 "useAcrylic": false
             },
             {
