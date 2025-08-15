@@ -29,6 +29,7 @@
             "id": "User.splitPane.A6751878"
         }
     ],
+    "alwaysShowTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
@@ -234,5 +235,6 @@
             "cursorColor": "#bbbbbb"
         }
     ],
+    "showTabsInTitlebar": false,
     "themes": []
 }
