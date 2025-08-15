@@ -313,10 +313,3 @@ directory_buildable () {
 alias cdr="cd ~/repos"
 
 {{ end }}
-
-
-# Update window title with current directory and command being executed.
-# Overrides WINDOW_TITLE set above. It's placed here at the end to avoid any
-# conflicts with preceeding commands such as one of the tab completion commands
-# (`bind '"\e[Z"':menu-complete-backward`).
-trap 'echo -ne "\033]0;${PWD##*/} - ${BASH_COMMAND}\007"' DEBUG
