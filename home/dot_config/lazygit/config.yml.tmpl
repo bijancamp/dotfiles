@@ -1,1 +1,8 @@
 {{- template "lazygit_config.yml" . -}}
+
+{{ if (and (eq .chezmoi.os "linux") (ne .host.type "container")) }}
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+{{ end }}
