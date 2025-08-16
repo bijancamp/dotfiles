@@ -69,10 +69,18 @@
         [
             {
                 "colorScheme": "Flat-UI",
+                {{ if eq .host.purpose "personal" }}
                 "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l",
+                {{ else if eq .host.purpose "work" }}
+                "commandline": "%LOCALAPPDATA%/Programs/Git/usr/bin/bash.exe -i -l",
+                {{ end }}
                 "cursorShape": "underscore",
                 "guid": "{00000000-0000-0000-ba54-000000000002}",
+                {{ if eq .host.purpose "personal" }}
                 "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+                {{ else if eq .host.purpose "work" }}
+                "icon": "%LOCALAPPDATA%/Programs/Git/mingw64/share/git/git-for-windows.ico",
+                {{ end }}
                 "name": "Bash",
                 "startingDirectory": "%USERPROFILE%",
                 "suppressApplicationTitle": false,
@@ -123,7 +131,11 @@
             },
             {
                 "colorScheme": "Flat-UI",
+                {{ if eq .host.purpose "personal" }}
                 "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l -c \"lazygit; exec bash\"",
+                {{ else if eq .host.purpose "work" }}
+                "commandline": "%LOCALAPPDATA%/Programs/Git/usr/bin/bash.exe -i -l -c \"lazygit; exec bash\"",
+                {{ end }}
                 "cursorShape": "underscore",
                 "guid": "{4ffaecda-5f61-4018-ae06-68b4dec06d29}",
                 "hidden": true,
