@@ -74,7 +74,7 @@
 
 {{ if eq .host.type "wsl" }}
 [credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+	helper = git-credential-manager.exe
 {{ end }}
 
 {{ if eq .host.purpose "personal" }}
