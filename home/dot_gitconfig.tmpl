@@ -11,20 +11,23 @@
 [init]
 	defaultBranch = main
 
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+
 [diff]
-    tool = default-difftool
+	tool = default-difftool
 
 [difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+	cmd = code --wait --diff $LOCAL $REMOTE
 
 [difftool]
 	prompt = false
 
 [merge]
-    tool = code
+	tool = code
 
 [mergetool "code"]
-    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
 [mergetool]
 	keepBackup = false
