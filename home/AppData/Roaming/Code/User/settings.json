@@ -1,5 +1,12 @@
 {
     "dev.containers.copyGitConfig": false,
+    "dev.containers.defaultExtensions": [
+        "eamodio.gitlens",
+        "ms-dotnettools.vscodeintellicode-csharp",
+        "shardulm94.trailing-spaces",
+        "volkerdobler.insertnums"
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
     "dotfiles.installCommand": "install-devcontainer.sh",
     "dotfiles.repository": "bijancamp/dotfiles",
     "dotfiles.targetPath": "~/.local/share/chezmoi",
@@ -21,6 +28,7 @@
     "github.copilot.nextEditSuggestions.enabled": true,
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "https://www.plantuml.com/plantuml",
+    "remote.autoForwardPortsSource": "hybrid",
     "telemetry.telemetryLevel": "off",
     "terminal.external.windowsExec": "wt.exe",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
