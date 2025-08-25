@@ -10,7 +10,6 @@
     "dotfiles.installCommand": "install-devcontainer.sh",
     "dotfiles.repository": "bijancamp/dotfiles",
     "dotfiles.targetPath": "~/.local/share/chezmoi",
-    "diffEditor.ignoreTrimWhitespace": false,
     "editor.inlineSuggest.enabled": true,
     "editor.renderWhitespace": "boundary",
     "files.autoSave": "onFocusChange",
