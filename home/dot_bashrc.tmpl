@@ -203,6 +203,67 @@ alias gf="git fetch"
 alias gr="git restore"
 alias grs="git restore --staged"
 
+# Prints all Git aliases
+git_aliases() {
+  local BRIGHT_YELLOW="\033[1;33m"
+  local RED="\033[0;31m"
+  local BLUE="\033[0;34m"
+  local BRIGHT_BLUE="\033[1;34m"
+  local RESET="\033[0m"
+
+  local -a names values
+  local max=0
+
+  while IFS= read -r line; do
+    line="${line#alias }"     # drop leading 'alias '
+    local name="${line%%=*}"  # up to '='
+    local value="${line#*=}"  # after '='
+    value="${value#\'}"       # strip leading quote
+    value="${value%\'}"       # strip trailing quote
+    names+=("$name")
+    values+=("$value")
+    (( ${#name} > max )) && max=${#name}
+  done < <(alias | grep -E '^alias g[[:alpha:]]*=' | sort)
+
+  local count=${#names[@]}
+  local i
+  for (( i=0; i<count; i++ )); do
+    local name="${names[i]}"
+    local value="${values[i]}"
+    # Print name with padding so that 'git' starts in same column
+    local pad=$(( max - ${#name} + 1 ))
+
+    if [[ "$value" == git ]]; then
+      printf "%b:%*s" "${BRIGHT_BLUE}${name}${RESET}" $pad ""
+      printf "%b" "${BRIGHT_YELLOW}git${RESET}"
+      printf "\n"
+    elif [[ "$value" == git* ]]; then
+      printf "%b:%*s" "${BRIGHT_BLUE}${name}${RESET}" $pad ""
+
+      local remainder="${value#git }"
+      local gitcmd="${remainder%% *}"
+      local opts=""
+
+      if [[ "$remainder" != "$gitcmd" ]]; then
+        opts="${remainder#"$gitcmd" }"
+      fi
+
+      printf "%b %b" "${BRIGHT_YELLOW}git${RESET}" "${RED}${gitcmd}${RESET}"
+
+      if [[ -n "$opts" ]]; then
+        # Trim leading whitespace just in case
+        opts="${opts#${opts%%[![:space:]]*}}"
+        printf " %b" "${BLUE}${opts}${RESET}"
+      fi
+
+      printf "\n"
+    fi
+  done
+}
+
+# Git: Alias help
+alias g?='git_aliases | less -R'
+
 # chezmoi
 alias ch="chezmoi"
 alias cha="chezmoi-apply-reload-bash-config --verbose"
