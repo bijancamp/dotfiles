@@ -2,6 +2,11 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "csharp.experimental.debug.hotReload": true,
+    "csharp.inlayHints.enableInlayHintsForImplicitObjectCreation": true,
+    "csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
+    "csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
+    "csharp.inlayHints.enableInlayHintsForTypes": true,
     "dev.containers.copyGitConfig": false,
     "dev.containers.defaultExtensions": [
         "eamodio.gitlens",
@@ -13,6 +18,11 @@
     "dotfiles.installCommand": "install-devcontainer.sh",
     "dotfiles.repository": "bijancamp/dotfiles",
     "dotfiles.targetPath": "~/.local/share/chezmoi",
+    "dotnet.inlayHints.enableInlayHintsForIndexerParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForLiteralParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForObjectCreationParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForOtherParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForParameters": true,
     "editor.inlineSuggest.enabled": true,
     "editor.renderWhitespace": "boundary",
     "files.autoSave": "onFocusChange",
