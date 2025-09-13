@@ -78,6 +78,28 @@
                 "suppressApplicationTitle": false,
                 "tabTitle": "Bash"
             },
+            {{ if eq .chezmoi.hostname "DESKTOP-DIGAGVV" }}
+            {
+                "colorScheme": "Ubuntu (windowsterminalthemes.dev)",
+                "cursorColor": "#FFFFFF",
+                "cursorShape": "bar",
+                "font":
+                {
+                    "face": "Cascadia Code",
+                    "size": 12.0
+                },
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "icon": "ms-appdata:///roaming/ubuntu_32px.png",
+                "name": "Ubuntu",
+                "opacity": 98,
+                "padding": "5, 5, 5, 5",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "suppressApplicationTitle": false,
+                "tabTitle": "Ubuntu",
+                "useAcrylic": false
+            },
+            {{ else }}
             {
                 "colorScheme": "Ubuntu (windowsterminalthemes.dev)",
                 "cursorColor": "#FFFFFF",
@@ -97,6 +119,7 @@
                 "tabTitle": "Ubuntu",
                 "useAcrylic": false
             },
+            {{ end }}
             {
                 "colorScheme": "Flat-UI",
                 "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l -c \"lazygit; exec bash\"",
@@ -109,6 +132,30 @@
                 "suppressApplicationTitle": true,
                 "tabTitle": "Lazygit"
             },
+            {{ if eq .chezmoi.hostname "DESKTOP-DIGAGVV" }}
+            {
+                "colorScheme": "Ubuntu (windowsterminalthemes.dev)",
+                "commandline": "wsl.exe -d Ubuntu --exec bash -i -l -c \"lazygit; exec bash\"",
+                "cursorColor": "#FFFFFF",
+                "cursorShape": "bar",
+                "font":
+                {
+                    "face": "Cascadia Code",
+                    "size": 12.0
+                },
+                "guid": "{a11731c1-6071-4d00-8329-4c435f3c6e8d}",
+                "hidden": true,
+                "icon": "ms-appdata:///roaming/ubuntu_32px.png",
+                "name": "Lazygit (Ubuntu)",
+                "opacity": 98,
+                "padding": "5, 5, 5, 5",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "startingDirectory": "~/repos",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Lazygit",
+                "useAcrylic": false
+            },
+            {{ else }}
             {
                 "colorScheme": "Ubuntu (windowsterminalthemes.dev)",
                 "commandline": "wsl.exe -d Ubuntu --exec bash -i -l -c \"lazygit; exec bash\"",
@@ -130,6 +177,7 @@
                 "tabTitle": "Lazygit",
                 "useAcrylic": false
             },
+            {{ end }}
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": true,
