@@ -58,6 +58,9 @@
 [includeIf "gitdir:C:/Repos/GH/bijancamp/"]
 	path = .gitconfig-user-personal
 
+[credential "https://github.com"]
+	useHttpPath = true
+
 
 {{ end }}
 {{ end }}
@@ -94,6 +97,9 @@
 	path = .secretfiles/gitconfig-user-work
 [includeIf "gitdir:~/repos/gh/bijancamp/"]
 	path = .gitconfig-user-personal
+
+[credential "https://github.com"]
+	useHttpPath = true
 
 {{ end }}
 
