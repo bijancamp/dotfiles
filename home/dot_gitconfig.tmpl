@@ -55,7 +55,7 @@
 # Use work-specific config by default except for GH repos
 [include]
 	path = .secretfiles/gitconfig-user-work
-[includeIf "gitdir:C:/Repos/GH/"]
+[includeIf "gitdir:C:/Repos/GH/bijancamp/"]
 	path = .gitconfig-user-personal
 
 
@@ -92,7 +92,7 @@
 # Use work-specific config by default except for gh repos
 [include]
 	path = .secretfiles/gitconfig-user-work
-[includeIf "gitdir:~/repos/gh/"]
+[includeIf "gitdir:~/repos/gh/bijancamp/"]
 	path = .gitconfig-user-personal
 
 {{ end }}
