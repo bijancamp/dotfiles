@@ -2,6 +2,13 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "chat.mcp.serverSampling": {
+        "Global in Code: context7": {
+            "allowedModels": [
+                "copilot/gpt-4.1"
+            ]
+        }
+    },
     "csharp.experimental.debug.hotReload": true,
     "csharp.inlayHints.enableInlayHintsForImplicitObjectCreation": true,
     "csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
