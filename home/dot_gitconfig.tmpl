@@ -115,6 +115,10 @@
 # Dev Container Configuration #
 ###############################
 
+# Dev Containers - All dev container environments
+[core]
+	excludesfile = ~/.gitignore
+
 {{ if eq .host.purpose "personal" }}
 
 # Dev Containers - Personal Use
@@ -126,9 +130,6 @@
 # Dev Containers - Work Use
 [include]
 	path = .secretfiles/gitconfig-user-work
-
-[core]
-	excludesfile = ~/.gitignore
 
 {{ end }}
 {{ end }}
