@@ -101,6 +101,9 @@
 [includeIf "gitdir:~/repos/gh/bijancamp/"]
 	path = .gitconfig-user-personal
 
+[core]
+	excludesfile = ~/.gitignore
+
 [credential "https://github.com"]
 	useHttpPath = true
 
@@ -123,6 +126,9 @@
 # Dev Containers - Work Use
 [include]
 	path = .secretfiles/gitconfig-user-work
+
+[core]
+	excludesfile = ~/.gitignore
 
 {{ end }}
 {{ end }}
