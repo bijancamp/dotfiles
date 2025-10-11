@@ -1,6 +1,15 @@
 {
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "chat.mcp.serverSampling": {
         "Global in Code: context7": {
@@ -48,6 +57,7 @@
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "https://www.plantuml.com/plantuml",
     "remote.autoForwardPortsSource": "hybrid",
+    "sonarlint.automaticAnalysis": true,
     "specstory.autoSave.enabled": false,
     "specstory.cloudSync.enabled": "never",
     "specstory.derivedRules.enabled": false,
