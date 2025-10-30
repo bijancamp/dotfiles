@@ -37,14 +37,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+alt+l",
-        "command": "lazygit-vscode.toggle"
-    },
-    {
-        "key": "ctrl+shift+l",
-        "command": "-lazygit-vscode.toggle"
-    },
-    {
         "key": "ctrl+alt+f",
         "command": "notebook.formatCell",
         "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
@@ -103,5 +95,9 @@
         "key": "shift+alt+f",
         "command": "-search.action.restrictSearchToFolder",
         "when": "folderMatchWithResourceFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "claude-vscode.sidebar.open"
     }
 ]
