@@ -50,8 +50,10 @@ echo "[dotfiles]   1. Restart your terminal or run \`source ~/.bashrc\` to load 
 echo "[dotfiles]   2. Run \`$CHEZMOI_INSTALL_DIR/chezmoi init --apply\` to finalize your dotfiles configuration"
 
 # Install MCP servers for Claude Code
-claude mcp add playwright npx @playwright/mcp@latest
-claude mcp add --transport http context7 https://mcp.context7.com/mcp
-claude mcp add azure-devops -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)"
+if command -v claude &> /dev/null; then
+    claude mcp add playwright npx @playwright/mcp@latest
+    claude mcp add --transport http context7 https://mcp.context7.com/mcp
+    claude mcp add azure-devops -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)"
 
-echo "[claude] MCP servers for Claude Code installed successfully."
+    echo "[claude] MCP servers for Claude Code installed successfully."
+fi
