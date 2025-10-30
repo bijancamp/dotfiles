@@ -17,19 +17,19 @@ CHEZMOI_SOURCE_DIR="$HOME/.local/share/chezmoi"
 if ! chezmoi="$(command -v chezmoi)"; then
     echo "[dotfiles] Installing chezmoi into $CHEZMOI_INSTALL_DIR..."
 
-	if command -v curl >/dev/null; then
-		chezmoi_install_script="$(curl -fsSL get.chezmoi.io)"
-	elif command -v wget >/dev/null; then
-		chezmoi_install_script="$(wget -qO- get.chezmoi.io)"
-	else
-		echo "[dotfiles] Error: To install chezmoi, you must have curl or wget installed." >&2
-		exit 1
-	fi
+    if command -v curl >/dev/null; then
+        chezmoi_install_script="$(curl -fsSL get.chezmoi.io)"
+    elif command -v wget >/dev/null; then
+        chezmoi_install_script="$(wget -qO- get.chezmoi.io)"
+    else
+        echo "[dotfiles] Error: To install chezmoi, you must have curl or wget installed." >&2
+        exit 1
+    fi
 
-	sh -c "${chezmoi_install_script}" -- -b "${CHEZMOI_INSTALL_DIR}"
+    sh -c "${chezmoi_install_script}" -- -b "${CHEZMOI_INSTALL_DIR}"
     echo "[dotfiles] chezmoi installed successfully."
 
-	unset chezmoi_install_script
+    unset chezmoi_install_script
 fi
 
 # Initialize chezmoi
