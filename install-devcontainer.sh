@@ -53,7 +53,7 @@ echo "[dotfiles]   2. Run \`$CHEZMOI_INSTALL_DIR/chezmoi init --apply\` to final
 if command -v claude &> /dev/null; then
     claude mcp add playwright npx @playwright/mcp@latest --scope user
     claude mcp add --transport http context7 https://mcp.context7.com/mcp --scope user
-    claude mcp add azure-devops -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)" --scope user
+    claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)"
 
     echo "[claude] MCP servers for Claude Code installed successfully."
 fi
