@@ -27,6 +27,7 @@
     "dev.containers.defaultExtensions": [
         "eamodio.gitlens",
         "ms-dotnettools.vscodeintellicode-csharp",
+        "ms-ossdata.vscode-pgsql",
         "shardulm94.trailing-spaces",
         "volkerdobler.insertnums"
     ],
