@@ -331,6 +331,19 @@ chezmoi-edit-reload-bash-config() {
 
 alias cdr="cd /c/Repos"
 
+function cl() {
+  local claude_code_sandbox
+
+  claude_code_sandbox="/c/Repos/Local/claude-code-sandbox"
+
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    claude "$@"
+  else
+    cd "$claude_code_sandbox" || return
+    claude "$@"
+  fi
+}
+
 {{ if eq .host.purpose "work" }}
 
 alias build="build_closest -verbosity:minimal -clp:errorsonly"
