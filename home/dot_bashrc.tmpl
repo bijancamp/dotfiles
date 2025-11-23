@@ -312,9 +312,12 @@ chezmoi-init-for-containers() {
     claude mcp add playwright npx @playwright/mcp@latest --scope user
     claude mcp add --transport http context7 https://mcp.context7.com/mcp --scope user
 
-    {{ if eq .host.purpose "work" -}}
-    claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)" -d core work work-items repositories
-    {{- end }}
+    local purpose
+    purpose="$(chezmoi data --format json | jq --raw-output '.host.purpose')"
+
+    if [[ "$purpose" == "work" ]]; then
+      claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)" -d core work work-items repositories
+    fi
 
     echo "[claude] MCP servers for Claude Code installed successfully."
   fi
