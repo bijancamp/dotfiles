@@ -331,15 +331,25 @@ cl() {
   claude_code_sandbox="$HOME/repos/local/claude-code-sandbox"
   {{ end -}}
 
+  # Check if -p or --print was provided
+  for arg in "$@"; do
+    if [[ "$arg" == "-p" || "$arg" == "--print" ]]; then
+      claude "$@"
+      return
+    fi
+  done
+
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     claude "$@"
-  else
-    if [[ ! -d "$claude_code_sandbox" ]]; then
-      mkdir -p "$claude_code_sandbox" || return
-    fi
-    cd "$claude_code_sandbox" || return
-    claude "$@"
+    return
   fi
+
+  if [[ ! -d "$claude_code_sandbox" ]]; then
+    mkdir -p "$claude_code_sandbox" || return
+  fi
+
+  cd "$claude_code_sandbox" || return
+  claude "$@"
 }
 
 
