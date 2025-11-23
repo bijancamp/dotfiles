@@ -278,7 +278,11 @@ alias chd="chezmoi diff"
 alias che="chezmoi-edit-reload-bash-config"
 alias chi="chezmoi init --verbose"
 alias chia="chezmoi-init-apply-reload-bash-config --verbose"
+{{ if eq .host.type "container" -}}
+alias chiaf="chezmoi-init-for-containers"
+{{ else -}}
 alias chiaf="chezmoi-init-apply-reload-bash-config --force --verbose"
+{{ end -}}
 alias chm="chezmoi merge"
 alias chma="chezmoi merge-all"
 alias chu="chezmoi-update-reload-bash-config --verbose"
@@ -298,6 +302,24 @@ chezmoi-run-and-reload-bash-config() {
 chezmoi-init-apply-reload-bash-config() {
   chezmoi-run-and-reload-bash-config init --apply "$@"
 }
+
+{{ if eq .host.type "container" -}}
+chezmoi-init-for-containers() {
+  chezmoi-init-apply-reload-bash-config --force --verbose "$@"
+
+  # Install MCP servers for Claude Code
+  if command -v claude &> /dev/null; then
+    claude mcp add playwright npx @playwright/mcp@latest --scope user
+    claude mcp add --transport http context7 https://mcp.context7.com/mcp --scope user
+
+    {{ if eq .host.purpose "work" -}}
+    claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)" -d core work work-items repositories
+    {{- end }}
+
+    echo "[claude] MCP servers for Claude Code installed successfully."
+  fi
+}
+{{- end }}
 
 chezmoi-apply-reload-bash-config() {
   chezmoi-run-and-reload-bash-config apply "$@"
