@@ -322,6 +322,26 @@ chezmoi-edit-reload-bash-config() {
   fi
 }
 
+cl() {
+  local claude_code_sandbox
+
+  {{ if eq .chezmoi.os "windows" -}}
+  claude_code_sandbox="/c/Repos/Local/claude-code-sandbox"
+  {{ else if (eq .chezmoi.os "linux" "darwin") -}}
+  claude_code_sandbox="$HOME/repos/local/claude-code-sandbox"
+  {{ end -}}
+
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    claude "$@"
+  else
+    if [[ ! -d "$claude_code_sandbox" ]]; then
+      mkdir -p "$claude_code_sandbox" || return
+    fi
+    cd "$claude_code_sandbox" || return
+    claude "$@"
+  fi
+}
+
 
 {{ if eq .chezmoi.os "windows" }}
 
@@ -330,19 +350,6 @@ chezmoi-edit-reload-bash-config() {
 ##################
 
 alias cdr="cd /c/Repos"
-
-function cl() {
-  local claude_code_sandbox
-
-  claude_code_sandbox="/c/Repos/Local/claude-code-sandbox"
-
-  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    claude "$@"
-  else
-    cd "$claude_code_sandbox" || return
-    claude "$@"
-  fi
-}
 
 {{ if eq .host.purpose "work" }}
 
