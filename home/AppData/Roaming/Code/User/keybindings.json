@@ -99,5 +99,13 @@
     {
         "key": "ctrl+alt+l",
         "command": "claude-vscode.sidebar.open"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
     }
 ]
