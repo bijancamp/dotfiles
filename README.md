@@ -10,6 +10,22 @@ The following variables are used in generating appropriate configurations for di
 - **Operating system (`.chezmoi.os`)**: Windows-specific settings when applicable
 - **Hostname (`.chezmoi.hostname`)**: Special handling for specific machines (e.g., personal desktop with Git signing keys)
 
+## Private VS Code Settings
+
+For work environments, you can store private VS Code settings (such as API keys, tokens, or work-specific configurations) securely using [chezmoi's keyring integration](https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/).
+
+**Setup command**:
+```bash
+chezmoi secret keyring set --service "vscode" --user="work-settings"
+```
+
+**Value format**: Enter your settings as a one-line, comma-separated list of JSON key-value pairs:
+```
+"setting1": value1, "setting2": value2
+```
+
+These settings will be automatically included in your VS Code `settings.json` when `.host.purpose` is set to `work`.
+
 ## Dev Container Setup
 
 ### VS Code Settings

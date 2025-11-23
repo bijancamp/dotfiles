@@ -11,6 +11,9 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "accessibility.signals.onDebugBreak": {
+        "sound": "on"
+    },
     "chat.mcp.serverSampling": {
         "Global in Code: context7": {
             "allowedModels": [
@@ -70,4 +73,7 @@
     "window.restoreWindows": "none",
     "window.zoomLevel": 0,
     "workbench.startupEditor": "none"
+    {{- if eq .host.purpose "work" }},
+    {{ keyring "vscode" "work-settings" }}
+    {{- end }}
 }
