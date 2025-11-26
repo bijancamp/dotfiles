@@ -107,5 +107,107 @@
     {
         "key": "ctrl+e",
         "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+; ctrl+x",
+        "command": "-testing.cancelRun"
+    },
+    {
+        "key": "ctrl+; ctrl+a",
+        "command": "-testing.debugAll"
+    },
+    {
+        "key": "ctrl+; ctrl+e",
+        "command": "-testing.debugFailTests"
+    },
+    {
+        "key": "ctrl+; ctrl+l",
+        "command": "-testing.debugLastRun"
+    },
+    {
+        "key": "ctrl+; ctrl+c",
+        "command": "-testing.debugAtCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; ctrl+f",
+        "command": "-testing.debugCurrentFile",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; ctrl+m",
+        "command": "-testing.openOutputPeek"
+    },
+    {
+        "key": "ctrl+; ctrl+r",
+        "command": "-testing.refreshTests",
+        "when": "testing.canRefresh"
+    },
+    {
+        "key": "ctrl+; e",
+        "command": "-testing.reRunFailTests"
+    },
+    {
+        "key": "ctrl+; l",
+        "command": "-testing.reRunLastRun"
+    },
+    {
+        "key": "ctrl+; ctrl+shift+l",
+        "command": "-testing.coverageLastRun"
+    },
+    {
+        "key": "ctrl+; a",
+        "command": "-testing.runAll"
+    },
+    {
+        "key": "ctrl+; ctrl+shift+a",
+        "command": "-testing.coverageAll"
+    },
+    {
+        "key": "ctrl+; c",
+        "command": "-testing.runAtCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; ctrl+shift+c",
+        "command": "-testing.coverageAtCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; f",
+        "command": "-testing.runCurrentFile",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; ctrl+shift+f",
+        "command": "-testing.coverageCurrentFile",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; ctrl+o",
+        "command": "-testing.showMostRecentOutput",
+        "when": "testing.hasAnyResults"
+    },
+    {
+        "key": "ctrl+; ctrl+shift+i",
+        "command": "-testing.toggleInlineCoverage"
+    },
+    {
+        "key": "ctrl+; ctrl+i",
+        "command": "-testing.toggleInlineTestOutput"
+    },
+    {
+        "key": "ctrl+;",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+alt+;",
+        "command": "workbench.action.terminal.newInActiveWorkspace"
     }
 ]
