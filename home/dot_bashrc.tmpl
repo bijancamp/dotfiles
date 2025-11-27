@@ -316,7 +316,7 @@ chezmoi-init-for-containers() {
     purpose="$(chezmoi data --format json | jq --raw-output '.host.purpose')"
 
     if [[ "$purpose" == "work" ]]; then
-      claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)" -d core work work-items repositories
+      claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/work/company-ado-org-name)" -d core work work-items repositories
       claude mcp add angular-cli --scope user -- npx -y @angular/cli mcp
     fi
 
