@@ -317,6 +317,7 @@ chezmoi-init-for-containers() {
 
     if [[ "$purpose" == "work" ]]; then
       claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/company-ado-org-name)" -d core work work-items repositories
+      claude mcp add angular-cli --scope user -- npx -y @angular/cli mcp
     fi
 
     echo "[claude] MCP servers for Claude Code installed successfully."
