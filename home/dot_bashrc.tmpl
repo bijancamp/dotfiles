@@ -307,7 +307,7 @@ chezmoi-init-apply-reload-bash-config() {
 chezmoi-init-for-containers() {
   chezmoi-init-apply-reload-bash-config --force --verbose "$@"
 
-  # Install MCP servers for Claude Code
+  # Install Claude MCP servers and agents
   if command -v claude &> /dev/null; then
     claude mcp add playwright npx @playwright/mcp@latest --scope user
     claude mcp add --transport http context7 https://mcp.context7.com/mcp --scope user
@@ -319,10 +319,11 @@ chezmoi-init-for-containers() {
       claude mcp add azure-devops --scope user -- npx -y @azure-devops/mcp "$(cat ~/.secretfiles/work/company-ado-org-name)" -d core work work-items repositories
       claude mcp add angular-cli --scope user -- npx -y @angular/cli mcp
 
-      cp -r ~/.secretfiles/work/claude/* ~/.claude
+      cp -r ~/.secretfiles/work/claude/agents ~/.claude/agents
+      chmod 700 ~/.claude/agents
     fi
 
-    echo "[claude] MCP servers for Claude Code installed successfully."
+    echo "[claude] MCP servers and agents for Claude Code installed successfully."
   fi
 }
 {{- end }}
