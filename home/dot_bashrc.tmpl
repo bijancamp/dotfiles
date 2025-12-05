@@ -395,6 +395,8 @@ alias cdr="cd /c/Repos"
 alias build="build_closest -verbosity:minimal -clp:errorsonly"
 alias rebuild="build_closest -t:rebuild -verbosity:minimal -clp:errorsonly"
 
+source ~/.secretfiles/work/bash_windows_aliases
+
 build_closest () {
   local repo_root
 
@@ -448,5 +450,9 @@ directory_buildable () {
 ##################
 
 alias cdr="cd ~/repos"
+
+{{ if eq .host.purpose "work" }}
+source ~/.secretfiles/work/bash_linux_aliases
+{{ end }}
 
 {{ end }}
