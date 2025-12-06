@@ -15,7 +15,7 @@
         "type": "custom-command",
         "color": "hex:2A2A2A",
         "backgroundColor": "hex:E2E8DD",
-        "commandPath": "git rev-parse --show-toplevel | xargs basename"
+        "commandPath": "git rev-parse --show-toplevel | xargs -r basename"
       },
       {
         "id": "aae3ab31-f053-4fbb-80fc-60288d401c9a",
