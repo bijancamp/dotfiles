@@ -3,6 +3,14 @@
   "lines": [
     [
       {
+        "id": "5b0b66b7-c9d7-47d7-a349-c17dfd8dd666",
+        "type": "custom-text",
+        "color": "hex:181818",
+        "backgroundColor": "hex:D77757",
+        "customText": "󰚩 ",
+        "merge": "no-padding"
+      },
+      {
         "id": "1",
         "type": "model",
         "color": "hex:181818",
@@ -15,7 +23,7 @@
         "type": "custom-command",
         "color": "hex:2A2A2A",
         "backgroundColor": "hex:E2E8DD",
-        "commandPath": "git rev-parse --show-toplevel | xargs -r basename"
+        "commandPath": "git rev-parse --show-toplevel | xargs -r basename | awk '{print \" \" $0}'"
       },
       {
         "id": "aae3ab31-f053-4fbb-80fc-60288d401c9a",
@@ -26,17 +34,43 @@
         "commandPath": "git branch --show-current | awk '{print \" \" $0}'"
       },
       {
+        "id": "3cf05a7d-674f-4675-aa69-8dba61396e8c",
+        "type": "custom-text",
+        "color": "hex:2E2E2E",
+        "backgroundColor": "hex:E2E8DD",
+        "customText": " ",
+        "merge": "no-padding"
+      },
+      {
         "id": "3",
         "type": "context-length",
         "color": "hex:2E2E2E",
-        "backgroundColor": "hex:C8D3BF"
+        "backgroundColor": "hex:E2E8DD",
+        "rawValue": true,
+        "merge": "no-padding"
+      },
+      {
+        "id": "25ea5b53-2fa1-4c5f-8f9b-6b288fc61d8c",
+        "type": "custom-text",
+        "color": "hex:2E2E2E",
+        "backgroundColor": "hex:E2E8DD",
+        "customText": " (",
+        "merge": "no-padding"
       },
       {
         "id": "5695a85d-5329-41d3-a8f1-585f6149cd03",
         "type": "context-percentage-usable",
-        "color": "hex:E6F1F0",
-        "backgroundColor": "hex:3A726F",
-        "rawValue": true
+        "color": "hex:2E2E2E",
+        "backgroundColor": "hex:E2E8DD",
+        "rawValue": true,
+        "merge": "no-padding"
+      },
+      {
+        "id": "c997fe2f-891b-4014-8dc6-af22f9de60bc",
+        "type": "custom-text",
+        "color": "hex:2E2E2E",
+        "backgroundColor": "hex:E2E8DD",
+        "customText": ")"
       }
     ],
     [],
