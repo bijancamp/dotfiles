@@ -1,0 +1,69 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "model",
+        "color": "brightBlack",
+        "backgroundColor": "ansi256:193",
+        "bold": false,
+        "rawValue": true
+      },
+      {
+        "id": "2c3a7f5a-b17b-4b77-b08a-56225f200637",
+        "type": "current-working-dir",
+        "color": "brightWhite",
+        "backgroundColor": "ansi256:66",
+        "rawValue": true,
+        "metadata": {
+          "fishStyle": "true"
+        }
+      },
+      {
+        "id": "aae3ab31-f053-4fbb-80fc-60288d401c9a",
+        "type": "custom-command",
+        "color": "brightWhite",
+        "backgroundColor": "ansi256:131",
+        "bold": false,
+        "commandPath": "git branch --show-current | awk '{print \" \" $0}'"
+      },
+      {
+        "id": "3",
+        "type": "context-length",
+        "color": "brightWhite",
+        "backgroundColor": "ansi256:60"
+      },
+      {
+        "id": "5695a85d-5329-41d3-a8f1-585f6149cd03",
+        "type": "context-percentage-usable",
+        "color": "brightWhite",
+        "backgroundColor": "ansi256:65",
+        "rawValue": true
+      }
+    ],
+    [],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPadding": " ",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [
+      ""
+    ],
+    "theme": "custom",
+    "autoAlign": false
+  }
+}
