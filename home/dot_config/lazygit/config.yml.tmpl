@@ -1,4 +1,8 @@
-{{- template "lazygit_config.yml" . -}}
+gui:
+  theme:
+{{ template "lazygit_config_gui_theme.yml" . }}
+
+{{ template "lazygit_config_global.yml" . }}
 
 {{ if (and (eq .chezmoi.os "linux") (ne .host.type "container")) }}
 git:
@@ -6,3 +10,7 @@ git:
     colorArg: always
     pager: delta --dark --paging=never --side-by-side
 {{ end }}
+
+keybinding:
+  universal:
+{{ template "lazygit_config_keybinding_universal.yml" . }}

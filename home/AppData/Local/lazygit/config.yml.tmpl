@@ -1,1 +1,18 @@
-{{- template "lazygit_config.yml" . -}}
+gui:
+  theme:
+{{ template "lazygit_config_gui_theme.yml" . }}
+
+{{ template "lazygit_config_global.yml" . }}
+
+{{ if eq .host.purpose "work" }}
+customCommands:
+  - key: '<c-r>'
+    context: 'localBranches'
+    command: 'git pull --rebase origin develop'
+    description: 'Rebase onto latest origin/develop'
+    loadingText: 'Rebasing onto latest origin/develop...'
+{{ end }}
+
+keybinding:
+  universal:
+{{ template "lazygit_config_keybinding_universal.yml" . }}
