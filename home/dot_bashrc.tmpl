@@ -96,6 +96,9 @@ prepend_path() {
 
 prepend_path "$HOME/.local/bin"
 
+# Aspire CLI
+[[ -d "$HOME/.aspire/bin" ]] && prepend_path "$HOME/.aspire/bin"
+
 export EDITOR="code --wait"
 
 
