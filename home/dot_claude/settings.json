@@ -1,6 +1,6 @@
 {
-  "env" : {
-     "ENABLE_TOOL_SEARCH": "true"
+  "env": {
+    "ENABLE_TOOL_SEARCH": "true"
   },
   "model": "opus",
   "statusLine": {
@@ -8,5 +8,6 @@
     "command": "bunx -y ccstatusline@latest",
     "padding": 0
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "latest"
 }
