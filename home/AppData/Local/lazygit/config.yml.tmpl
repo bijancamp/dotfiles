@@ -6,6 +6,16 @@ gui:
 
 {{ if eq .host.purpose "work" }}
 customCommands:
+  - key: '<c-b>'
+    context: 'localBranches'
+    command: 'bash -c "git fetch origin && git switch -c {{ "{{" }} .Form.BranchName {{ "}}" }} origin/develop"'
+    description: 'Create new feature branch from latest origin/develop'
+    loadingText: 'Creating new feature branch from latest origin/develop...'
+    prompts:
+      - type: 'input'
+        key: 'BranchName'
+        title: "Branch Name:"
+        initialValue: "feature/"
   - key: '<c-r>'
     context: 'localBranches'
     command: 'git pull --rebase origin develop'
