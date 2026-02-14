@@ -393,7 +393,11 @@ cl() {
 
 alias cdr="cd /c/Repos"
 
-{{ if eq .host.purpose "work" }}
+{{ if eq .host.purpose "personal" }}
+
+source ~/.secretfiles/personal/bash_windows_aliases
+
+{{ else if eq .host.purpose "work" }}
 
 alias build="build_closest -verbosity:minimal -clp:errorsonly"
 alias rebuild="build_closest -t:rebuild -verbosity:minimal -clp:errorsonly"
