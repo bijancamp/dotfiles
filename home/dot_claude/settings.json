@@ -10,6 +10,5 @@
     "padding": 0
   },
   "alwaysThinkingEnabled": true,
-  "autoUpdatesChannel": "latest",
-  "effortLevel": "high"
+  "autoUpdatesChannel": "latest"
 }
