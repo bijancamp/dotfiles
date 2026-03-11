@@ -9,6 +9,13 @@
     "command": "bunx -y ccstatusline@latest",
     "padding": 0
   },
+  {{ if eq .host.purpose "work" -}}
+  "enabledPlugins": {
+    "slack@claude-plugins-official": true
+  },
+  {{- end }}
+  "extraKnownMarketplaces": {},
   "alwaysThinkingEnabled": true,
+  "effortLevel": "medium",
   "autoUpdatesChannel": "latest"
 }
