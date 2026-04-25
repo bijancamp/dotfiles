@@ -1,9 +1,14 @@
 {
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_USE_POWERSHELL_TOOL": "1",
     "ENABLE_TOOL_SEARCH": "true"
   },
-  "model": "opus",
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bunx -y ccstatusline@latest",
@@ -16,6 +21,10 @@
   {{- end }}
   "extraKnownMarketplaces": {},
   "alwaysThinkingEnabled": true,
-  "effortLevel": "medium",
-  "autoUpdatesChannel": "latest"
+  "effortLevel": "xhigh",
+  "autoUpdatesChannel": "latest",
+  "tui": "default",
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
+  "agentPushNotifEnabled": true
 }

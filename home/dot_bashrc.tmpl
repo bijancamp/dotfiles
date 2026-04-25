@@ -120,6 +120,12 @@ if [[ -d "$HOME/.volta" ]]; then
   export PATH="$VOLTA_HOME/bin:$PATH"
 fi
 
+# Volta shell setup
+if [[ -d "$LOCALAPPDATA/Volta" ]]; then
+  export VOLTA_HOME="$LOCALAPPDATA/Volta"
+  export PATH="$VOLTA_HOME/bin:$PATH"
+fi
+
 
 #########################
 ## Completion Behavior ##
