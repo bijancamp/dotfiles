@@ -54,7 +54,7 @@
 # Windows - Work Machine
 # Use work-specific config by default except for GH repos
 [include]
-	path = .secretfiles/work/gitconfig-user-work
+	path = .gitconfig-user-work
 [includeIf "{{ keyring "git" "additional-include-1" }}"]
 	path = .gitconfig-user-personal
 [includeIf "{{ keyring "git" "additional-include-2" }}"]
