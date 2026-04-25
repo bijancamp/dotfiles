@@ -2,9 +2,10 @@
 {{- $host_type := promptChoiceOnce . "host.type" "Host type" $host_type_choices "native" -}}
 {{- $host_purpose_choices := list "personal" "work" "unknown" -}}
 {{- $host_purpose := promptChoice "Host purpose" $host_purpose_choices "personal" -}}
+{{- $company := promptString "Company name" -}}
 
 [data]
-    company = "JDX"
+    company = {{ $company | quote }}
 
 [data.host]
     type = {{ $host_type | quote }}
