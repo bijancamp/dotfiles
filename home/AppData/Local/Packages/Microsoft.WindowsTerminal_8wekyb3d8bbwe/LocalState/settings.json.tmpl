@@ -85,7 +85,7 @@
         [
             {
                 "colorScheme": "Flat-UI",
-                "commandline": "{{- .git.bash.path }} -i -l",
+                "commandline": "{{- .git.bash.binary_path }} -i -l",
                 "cursorShape": "underscore",
                 "font": 
                 {
@@ -93,7 +93,7 @@
                     "size": 12
                 },
                 "guid": "{00000000-0000-0000-ba54-000000000002}",
-                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+                "icon": "{{- .git.bash.icon_path }}",
                 "name": "Bash",
                 "startingDirectory": "%USERPROFILE%",
                 "suppressApplicationTitle": false,
