@@ -99,6 +99,9 @@ prepend_path "$HOME/.local/bin"
 # Aspire CLI
 [[ -d "$HOME/.aspire/bin" ]] && prepend_path "$HOME/.aspire/bin"
 
+# VS Code (just in case there is a system-wide installation that clobbers the local one)
+[[ -d "$LOCALAPPDATA/Programs/Microsoft VS Code/bin" ]] && prepend_path "$LOCALAPPDATA/Programs/Microsoft VS Code/bin"
+
 export EDITOR="code --wait"
 
 
