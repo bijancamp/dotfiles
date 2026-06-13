@@ -38,6 +38,7 @@ echo "[dotfiles] Initializing chezmoi and applying dotfiles (for purpose 'unknow
     --prompt \
     --promptChoice="Host type=container" \
     --promptChoice="Host purpose=unknown" \
+    --promptString="Company name=" \
     --source="$CHEZMOI_SOURCE_DIR"
 echo "[dotfiles] chezmoi initialized successfully."
 
