@@ -80,7 +80,5 @@
     "window.restoreWindows": "none",
     "window.zoomLevel": 0,
     "workbench.startupEditor": "none"
-    {{- if eq .host.purpose "work" }},
-    {{ keyring "vscode" "work-settings" }}
-    {{- end }}
+    {{ keyring "vscode" "local-settings" }}
 }
