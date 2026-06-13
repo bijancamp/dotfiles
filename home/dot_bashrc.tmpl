@@ -100,7 +100,10 @@ prepend_path "$HOME/.local/bin"
 [[ -d "$HOME/.aspire/bin" ]] && prepend_path "$HOME/.aspire/bin"
 
 # VS Code (just in case there is a system-wide installation that clobbers the local one)
-[[ -d "$LOCALAPPDATA/Programs/Microsoft VS Code/bin" ]] && prepend_path "$LOCALAPPDATA/Programs/Microsoft VS Code/bin"
+if command -v cygpath &> /dev/null && [[ -n "$LOCALAPPDATA" ]]; then
+  LOCALAPPDATA_BASH="$(cygpath "$LOCALAPPDATA" 2>/dev/null || printf '%s' "${LOCALAPPDATA//\\//}")"
+  [[ -d "$LOCALAPPDATA_BASH/Programs/Microsoft VS Code/bin" ]] && prepend_path "$LOCALAPPDATA_BASH/Programs/Microsoft VS Code/bin"
+fi
 
 export EDITOR="code --wait"
 

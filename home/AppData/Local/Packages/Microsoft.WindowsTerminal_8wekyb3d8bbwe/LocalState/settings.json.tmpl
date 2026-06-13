@@ -205,6 +205,22 @@
             },
             {{ end }}
             {
+                "colorScheme": "Flat-UI",
+                "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l -c \"claude agents; exec bash\"",
+                "cursorShape": "underscore",
+                "font": 
+                {
+                    "face": "CaskaydiaCove Nerd Font Mono",
+                    "size": 12
+                },
+                "guid": "{049d2f78-a2d8-4dc9-a91f-d2c92919ea8d}",
+                "hidden": true,
+                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "Claude Code Agent View",
+                "startingDirectory": "{{ keyring "wt" "claude-code-agents-view-starting-directory" }}",
+                "suppressApplicationTitle": false
+            },
+            {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": true,
                 "name": "Ubuntu",
