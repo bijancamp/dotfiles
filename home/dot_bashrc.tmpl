@@ -404,6 +404,9 @@ cl() {
 ## Windows-Only ##
 ##################
 
+# Needed in Windows Terminal to ensure history is saved
+[[ -n "$WT_SESSION" ]] && PROMPT_COMMAND='history -a'
+
 alias cdr="cd /c/Repos"
 
 {{ if eq .host.purpose "work" }}
