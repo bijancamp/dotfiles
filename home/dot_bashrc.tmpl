@@ -306,7 +306,7 @@ alias chu="chezmoi-update-reload-bash-config --verbose"
 alias lg="lazygit"
 
 # Aliases not managed by chezmoi
-source ~/.bash_aliases_additional
+[[ -f ~/.bash_aliases_additional ]] && source ~/.bash_aliases_additional
 
 
 ###############
