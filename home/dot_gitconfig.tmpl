@@ -55,10 +55,8 @@
 # Use work-specific config by default except for GH repos
 [include]
 	path = .gitconfig-user-work
-[includeIf "{{ keyring "git" "additional-include-1" }}"]
-	path = .gitconfig-user-personal
-[includeIf "{{ keyring "git" "additional-include-2" }}"]
-	path = .gitconfig-user-personal
+[include]
+	path = .gitconfig-user-local
 
 [core]
 	excludesfile = C:/Users/BijanCamp/.gitignore
