@@ -3,15 +3,9 @@
 {{- $host_purpose_choices := list "personal" "work" "unknown" -}}
 {{- $host_purpose := promptChoice "Host purpose" $host_purpose_choices "personal" -}}
 {{- $company := promptString "Company name" -}}
-{{- $git_bash_path := promptStringOnce . "git.bash.binary_path" "Git Bash binary path" "%PROGRAMFILES%/Git/usr/bin/bash.exe" -}}
-{{- $git_bash_icon := promptStringOnce . "git.bash.icon_path" "Git Bash icon path" "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico" -}}
 
 [data]
     company = {{ $company | quote }}
-
-[data.git.bash]
-    binary_path = {{ $git_bash_path | quote }}
-    icon_path = {{ $git_bash_icon | quote }}
 
 [data.host]
     type = {{ $host_type | quote }}

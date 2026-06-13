@@ -85,7 +85,7 @@
         [
             {
                 "colorScheme": "Flat-UI",
-                "commandline": "{{- .git.bash.binary_path }} -i -l",
+                "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l",
                 "cursorShape": "underscore",
                 "font": 
                 {
@@ -93,7 +93,7 @@
                     "size": 12
                 },
                 "guid": "{00000000-0000-0000-ba54-000000000002}",
-                "icon": "{{- .git.bash.icon_path }}",
+                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
                 "name": "Bash",
                 "startingDirectory": "%USERPROFILE%",
                 "suppressApplicationTitle": false,
@@ -143,7 +143,7 @@
             {{ end }}
             {
                 "colorScheme": "Flat-UI",
-                "commandline": "{{- .git.bash.binary_path }} -i -l -c \"lazygit; exec bash\"",
+                "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l -c \"lazygit; exec bash\"",
                 "cursorShape": "underscore",
                 "font": 
                 {
@@ -152,7 +152,7 @@
                 },
                 "guid": "{4ffaecda-5f61-4018-ae06-68b4dec06d29}",
                 "hidden": true,
-                "icon": "{{- .git.bash.icon_path }}",
+                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
                 "name": "Lazygit (Bash)",
                 "startingDirectory": "C:\\Repos",
                 "suppressApplicationTitle": true,
