@@ -2,6 +2,13 @@
 
 My personal configuration files, managed with [chezmoi](https://www.chezmoi.io/).
 
+## How it works
+
+One Go-templated source tree under `home/` renders into a different home directory on
+every machine, branched on a handful of variables and topped up with out-of-band secrets:
+
+![chezmoi Configuration Workflow](assets/chezmoi-configuration-workflow.jpg)
+
 ## Key Variables
 
 The following variables are used in generating appropriate configurations for different environments and contexts:
