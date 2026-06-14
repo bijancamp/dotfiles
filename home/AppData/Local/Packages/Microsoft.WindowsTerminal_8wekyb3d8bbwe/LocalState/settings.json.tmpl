@@ -204,6 +204,7 @@
                 "useAcrylic": false
             },
             {{ end }}
+            {{ if eq .host.purpose "work" }}
             {
                 "colorScheme": "Flat-UI",
                 "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l -c \"claude agents; exec bash\"",
@@ -220,6 +221,7 @@
                 "startingDirectory": "{{ keyring "wt" "claude-code-agents-view-starting-directory" }}",
                 "suppressApplicationTitle": false
             },
+            {{ end }}
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": true,
