@@ -12,11 +12,11 @@ The following variables are used in generating appropriate configurations for di
 
 ## Private VS Code Settings
 
-For work environments, you can store private VS Code settings (such as API keys, tokens, or work-specific configurations) securely using [chezmoi's keyring integration](https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/).
+You can store private VS Code settings (such as API keys, tokens, or machine-specific configurations) securely using [chezmoi's keyring integration](https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/).
 
 **Setup command**:
 ```bash
-chezmoi secret keyring set --service "vscode" --user="work-settings"
+chezmoi secret keyring set --service "vscode" --user="local-settings"
 ```
 
 **Value format**: Enter your settings as a one-line, comma-separated list of JSON key-value pairs:
@@ -24,7 +24,7 @@ chezmoi secret keyring set --service "vscode" --user="work-settings"
 "setting1": value1, "setting2": value2
 ```
 
-These settings will be automatically included in your VS Code `settings.json` when `.host.purpose` is set to `work`.
+These settings are automatically appended to your VS Code `settings.json` on any Windows host.
 
 ## Dev Container Setup
 
