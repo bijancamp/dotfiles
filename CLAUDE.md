@@ -38,7 +38,6 @@ machine's local chezmoi config:
 - `.chezmoi.hostname` — `DESKTOP-DIGAGVV` is the personal desktop; it is the only host that gets GPG commit signing and the WSL/native Ubuntu terminal profiles
 - `.host.type` — `native` / `wsl` / `container`
 - `.host.purpose` — `personal` / `work` / `unknown`
-- `.company` — free text, used in the shell-prompt context segment
 
 The same source tree therefore renders very differently per machine. `dot_gitconfig.tmpl`
 is the clearest example: it selects entirely different `user`/`credential`/`includeIf`
@@ -51,7 +50,8 @@ Secret values are pulled at render time from the OS keyring via the `keyring` te
 function (`keyring "<service>" "<user>"`):
 - `keyring "vscode" "local-settings"` — appends private VS Code settings as trailing JSON (work machines)
 - `keyring "git" ...` — work gitconfig `includeIf` path conditions
-- `keyring "ado" ...` / `keyring "wt" ...` — Azure DevOps org name (used in the container init MCP setup) and the Windows Terminal Claude-agent starting directory
+- `keyring "ado" ...` / `keyring "wt" ...` — Azure DevOps org name (used in the container init MCP setup) and the starting directory for Claude Code agents view in Windows Terminal
+- `keyring "company" "name"` — company name for the work shell-prompt context segment; unlike the others it is read at shell startup in `dot_bashrc.tmpl` via `chezmoi secret keyring get --service=company --user=name ... || true` (only on `work` hosts), so a missing item degrades to empty (→ `Unknown`) rather than aborting apply
 
 Set one with e.g. `chezmoi secret keyring set --service vscode --user local-settings`.
 Separately, `home/.chezmoiexternal.toml` clones a private repo (`secretfiles`) into
@@ -91,7 +91,7 @@ wrapper aliases that apply-and-reload in one step: `cha` (apply), `chd` (diff), 
 
 `~/.bash_profile` simply sources `~/.bashrc`. The bashrc is the largest template and the
 primary place shell behavior is defined: a git-aware colored prompt whose context segment
-is computed from `.host.purpose`/`.company`, a large family of `g*` git aliases (run `g?`
+is computed from `.host.purpose` (and, on work hosts, the `keyring "company" "name"` value), a large family of `g*` git aliases (run `g?`
 for a formatted, colorized listing), the chezmoi apply-and-reload wrapper functions, and
 OS/purpose-gated sections — Windows work machines get `build`/`rebuild` MSBuild helpers
 (`build_closest` walks up to the nearest buildable dir), and the `container` branch's

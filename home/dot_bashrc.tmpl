@@ -32,7 +32,9 @@ fi
 WINDOW_TITLE="Bash"
 USER="Bijan"
 
-COMPANY="{{- .company }}"
+{{ if eq .host.purpose "work" -}}
+COMPANY="$(chezmoi secret keyring get --service=company --user=name 2>/dev/null || true)"
+{{ end -}}
 HOST_PURPOSE="{{- .host.purpose }}"
 SUBCONTEXT=""
 
