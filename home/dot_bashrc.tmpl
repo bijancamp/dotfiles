@@ -471,3 +471,8 @@ directory_buildable () {
 alias cdr="cd ~/repos"
 
 {{ end }}
+
+
+# Other configuration not managed by chezmoi. The "end" in the name communicates
+# that this is the final local configuration file to be sourced.
+[[ -f ~/.bashrc_local_end ]] && source ~/.bashrc_local_end
