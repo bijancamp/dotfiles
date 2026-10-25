@@ -1,0 +1,20 @@
+[include]
+	path = .gitconfig-user-personal
+
+{{ if eq .chezmoi.hostname "DESKTOP-DIGAGVV" }}
+[user]
+	signingkey = B3337A2587EF7238
+{{ else }}
+# Machines without the GPG key above sign with an SSH key, registered on GitHub as a signing key.
+[user]
+	signingkey = {{ .chezmoi.homeDir }}/.ssh/id_ed25519_signing.pub
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
+{{ end }}
+
+[commit]
+	gpgsign = true

@@ -9,6 +9,6 @@ AppData
 .minttyrc
 {{ end }}
 
-{{ if (not (and (eq .chezmoi.os "windows") (eq .chezmoi.hostname "DESKTOP-DIGAGVV"))) }}
+{{ if (not (and (eq .chezmoi.os "windows") (or (eq .chezmoi.hostname "DESKTOP-DIGAGVV") (eq .host.purpose "work")))) }}
 .gitconfig-user-personal-signing
 {{ end }}
