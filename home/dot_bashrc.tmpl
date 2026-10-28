@@ -374,7 +374,7 @@ cl() {
   local claude_code_sandbox
 
   {{ if eq .chezmoi.os "windows" -}}
-  claude_code_sandbox="/c/Repos/Local/claude-code-sandbox"
+  claude_code_sandbox="{{ if eq .host.purpose "work" }}/r/dev/local/claude-code-sandbox{{ else }}/c/Repos/Local/claude-code-sandbox{{ end }}"
   {{ else if (eq .chezmoi.os "linux" "darwin") -}}
   claude_code_sandbox="$HOME/repos/local/claude-code-sandbox"
   {{ end -}}
@@ -410,9 +410,13 @@ cl() {
 # Needed in Windows Terminal to ensure history is saved
 [[ -n "$WT_SESSION" ]] && PROMPT_COMMAND='history -a'
 
+{{ if eq .host.purpose "personal" }}
+
 alias cdr="cd /c/Repos"
 
-{{ if eq .host.purpose "work" }}
+{{ else }}
+
+alias cdr="cd /r/dev"
 
 alias build="build_closest -verbosity:minimal -clp:errorsonly"
 alias rebuild="build_closest -t:rebuild -verbosity:minimal -clp:errorsonly"
