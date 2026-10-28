@@ -154,7 +154,7 @@
                 "hidden": true,
                 "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
                 "name": "Lazygit (Bash)",
-                "startingDirectory": "C:\\Repos",
+                "startingDirectory": "{{ if eq .host.purpose "work" }}R:\\dev{{ else }}C:\\Repos{{ end }}",
                 "suppressApplicationTitle": true,
                 "tabTitle": "Lazygit"
             },
